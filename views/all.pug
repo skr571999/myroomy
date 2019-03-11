@@ -1,0 +1,11 @@
+extends ./parts/_layout.pug
+
+block content
+    h1 All User List
+    div
+        if users
+            each user1 in users
+                div
+                    span User Name: #{user1.username} | 
+                    if user1.occupation
+                        span User Occupation:  #{user1.occupation}

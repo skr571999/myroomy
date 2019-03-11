@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+header {
+    background-color: #95b2ff;
+    display: flex;
+}
+
+header div:nth-child(1) {
+    background-color: rgb(104, 209, 112);
+    flex: auto;
+    /* margin: .5em; */
+    padding: 1em;
+}
+
+header div:nth-child(2) {
+    background-color: rgb(255, 194, 194);
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    margin: .5em;
+    padding: .5em;
+    display: inline-block;
+}
+
+.main-container{
+    padding: 1em;
+    text-align: center;
+}

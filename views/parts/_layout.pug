@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        title #{title}
+        link(rel="stylesheet", href="/styles/main.css")
+        block scripts
+    body
+        header
+            div
+                if user
+                    a() Node App - #{user.username}
+                else 
+                    a() Node App - Home
+            div
+                ul
+                    if !user
+                        li 
+                            a(href="/user/login") Login
+                        li
+                            a(href="/user/signup") Signup
+                    else 
+                        li
+                            a(href="/user/logout") Logout
+        .main-container
+            block content

@@ -1,0 +1,9 @@
+extends ./parts/_layout.pug
+
+block content
+    h1 Dashboard
+    div
+        p Hello, #{user.username}
+    div
+        if user.username === 'admin'
+            a(href="/user/all") Show All Users

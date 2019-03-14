@@ -1,0 +1,16 @@
+extends ./parts/_layout.pug
+
+block content
+    h1 Dashboard
+    div
+        p Hello, #{user.name}
+    div
+        if user.userid === 'admin'
+            p
+                a(href="/user/all") Show All Users
+    if user
+        div
+            p
+                a(href="/room/new") Add New Room
+            p   
+                a(href="/room/all") Show all Rooms

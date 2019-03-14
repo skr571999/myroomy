@@ -1,14 +1,15 @@
 const LocalStrategy = require('passport-local').Strategy;
+const User = require('../app/models/User.model')
 
-const User = require('../models/User.model')
-
-module.exports = function (passport) {
-    /* PASSPORT LOCAL AUTHENTICATION */
-    passport.use(new LocalStrategy((username, password, done) => {
-        User.findOne({ username: username })
+module.exports = (passport) => {
+    passport.use(new LocalStrategy({
+        usernameField: 'userid',
+        passwordField: 'password'
+    }, (username, password, done) => {
+        User.findOne({ userid: username })
             .then(user => {
                 // check user exists
-                console.log(user)
+                console.log(user.name)
                 if (!user) {
                     console.log('Not a user')
                     return done(null, false)

@@ -1,0 +1,29 @@
+extends ./parts/_layout.pug
+
+block content
+    h1 Add new User
+    include ./parts/_messages.pug
+    form(action='/user/add' method='post')
+        div.form-group
+            label User ID: 
+            input(type='text' name='userid' value=userid?userid:'')
+        div.form-group
+            label Email: 
+            input(type='text' name='email' value=email?email:'')
+        div.form-group
+            label Name: 
+            input(type='text' name='name' value=name?name:'')
+        div.form-group
+            label Mobile Number:
+            input(type='number' name='mobileNumber' value=mobileNumber?mobileNumber:'')
+        div.form-group
+            label Address:<br>
+            textarea(name="address", cols="15", rows="5") 
+        div.form-group
+            label Addhar Number:
+            input(type='number' name='addharNumber' value=addharNumber?addharNumber:'')
+        div.form-group
+            label Password:
+            input(type='password' name='password' value=password?password:'')
+        div.form-group
+            input(type='submit' value='Submit')

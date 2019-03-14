@@ -1,10 +1,51 @@
 const express = require('express');
 const passport = require('passport')
 const router = express.Router();
-const { ensureAuthenticated } = require('../config/auth');
+const { ensureAuthenticated } = require('../../config/auth');
 
 const User = require('../models/User.model');
-const Room = require('../models/Room.model');
+
+router.get('/signup', (req, res) => {
+    let msgs = []
+    if (!req.isAuthenticated()) {
+        res.render('signup', {
+            title: 'Sign Up'
+        })
+    } else {
+        msgs.push('You are already logged in, first logout')
+        res.send('You are already logged in, to add accout first logout')
+    }
+})
+
+router.post('/add', (req, res) => {
+    const { userid, email, name, mobileNumber, address, addharNumber, password } = req.body;
+    let msgs = []
+
+    User.findOne({ userid: userid })
+        .then((user) => {
+            // User Matched
+            if (user) {
+                msgs.push('User already registered')
+                res.render('signup', {
+                    msgs, userid, email, name, mobileNumber, address, addharNumber, password
+                })
+            } else {
+                // User Not exists
+                const newUser = new User({
+                    userid, email, name, mobileNumber, address, addharNumber, password
+                })
+
+                newUser.save()
+                    .then((result) => {
+                        req.flash('success', 'User Registration Success')
+                        res.redirect('/user/login')
+                    })
+                    .catch(err => {
+                        res.send('User not Registered')
+                    })
+            }
+        })
+})
 
 router.get('/login', (req, res) => {
     res.render('login', {
@@ -12,56 +53,16 @@ router.get('/login', (req, res) => {
     })
 })
 
-router.get('/signup', (req, res) => {
-    res.render('signup', {
-        title: 'Sign Up'
-    })
-})
-
-router.post('/add', (req, res) => {
-    const { username, password, occupation } = req.body;
-    let messages = []
-
-    User.findOne({ username: username })
-        .then((user) => {
-            // User Matched
-            if (user) {
-                messages.push('User already registered')
-                res.render('signup', {
-                    messages, username, password, occupation
-                })
-            } else {
-                // User Not exists
-                const newUser = new User({
-                    username: username,
-                    password: password,
-                    occupation: occupation
-                })
-
-                newUser.save()
-                    .then((result) => {
-                        res.render('Login', {
-                            title: 'Login'
-                        })
-                    })
-                    .catch(err => {
-                        res.send('User Registered')
-                    })
-            }
-        })
-})
-
-// Login handle
 router.post('/auth', (req, res, next) => {
     passport.authenticate('local', {
         successRedirect: '/user/dashboard',
-        failureRedirect: '/user/error'
+        failureRedirect: '/user/login'
     })(req, res, next)
 })
 
-router.get('/logout', (req, res) => {
+router.get('/logout', ensureAuthenticated, (req, res) => {
     req.logout();
-    res.redirect('/home')
+    res.redirect('/user/login')
 })
 
 router.get('/dashboard', ensureAuthenticated, (req, res) => {

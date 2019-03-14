@@ -2,7 +2,11 @@ doctype html
 html
     head
         title #{title}
+        link(rel="stylesheet", href="/styles/bootstrap.min.css")
         link(rel="stylesheet", href="/styles/main.css")
+        meta(name="theme-color" content="#e4e4e4")
+        link(rel="icon" sizes="192x192" href="/icons/room-icon.png")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
         block scripts
     body
         header
@@ -10,11 +14,11 @@ html
                 if user
                     a() Node App - #{user.username}
                 else 
-                    a() Node App - Home
+                    a() Node App
             div
                 ul
                     if !user
-                        li 
+                        li
                             a(href="/user/login") Login
                         li
                             a(href="/user/signup") Signup

@@ -3,31 +3,181 @@ body {
     font-family: sans-serif;
 }
 
-header {
-    background-color: #95b2ff;
-    display: flex;
-    div:nth-child(1) {
-        background-color: rgb(104, 209, 112);
-        flex: auto;
-        padding: 1em;
-    }
-    div:nth-child(2) {
-        background-color: rgb(255, 194, 194);
-    }
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    li {
-        margin: .5em;
-        padding: .5em;
-        display: inline-block;
+.main-header {
+    background-color: #ff7bc4;
+    ul {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        li:nth-child(1) {
+            flex: auto;
+        }
+        li {
+            align-self: center;
+            img {
+                display: inline-block;
+                width: 100%;
+                max-width: 2.8em;
+                border-radius: 50%;
+            }
+        }
+        li {
+            a {
+                display: inline-block;
+                padding: .8em;
+                font-size: 1.2em;
+            }
+        }
     }
 }
 
 .main-container {
     padding: 1em;
+}
+
+.homeContainer {
+    padding: 1em;
+    div {
+        p {
+            a {
+                margin-left: 2em;
+                font-size: 1.2em;
+            }
+        }
+    }
+}
+
+.dashboard {
+    .navContainer {
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            li {
+                display: inline-block;
+                margin-right: 1.3em;
+                a {
+                    display: inline-block;
+                    padding: .3em;
+                    &:hover {
+                        background-color: #fff;
+                        border-radius: 3px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.detailContainer {
+    padding: 1.5em;
+    .imageContainer {
+        margin-left: 5em;
+        img {
+            width: 100%;
+            max-width: 4em;
+        }
+    }
+    .detail {
+        padding: 1em 2em;
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: .6em;
+            background-color: #fff;
+            li {
+                display: flex;
+                color: rgb(71, 71, 71);
+                text-align: center;
+                span {
+                    background-color: rgb(226, 226, 226);
+                    flex: 50%;
+                    margin-bottom: 2px;
+                    padding: .2em 0;
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+}
+
+.allRoomContainer {
+    .roomContainer {
+        display: flex;
+        flex-wrap: wrap;
+        .room {
+            flex: 17em;
+            background-color: rgb(255, 196, 196);
+            padding: .7em;
+            margin: .5em;
+            h3,
+            p,
+            ul {
+                margin: .2em;
+            }
+        }
+    }
+}
+
+.loginContainer {
     text-align: center;
+    font-size: 1.1em;
+    form {
+        div {
+            padding: .2em 0;
+        }
+        .submitBtn {
+            input {
+                font-size: 1.05em;
+            }
+        }
+    }
+}
+
+.signupContainer {
+    h2 {
+        text-align: center;
+    }
+    form {
+        padding: 1.2em;
+        background-color: rgb(235, 235, 235);
+        font-size: 1.05em;
+        div {
+            display: flex;
+            padding: 0.3em;
+            span {
+                flex: 50%;
+            }
+            .center {
+                text-align: center;
+                margin-top: 1em;
+                input {
+                    font-size: 1.05em;
+                }
+            }
+        }
+    }
+}
+
+.newRoomContainer {
+    h2 {
+        text-align: center;
+    }
+    .newRoomForm {
+        form {
+            padding: 2em;
+            >div {
+                .featureContainer {
+                    margin-left: 2em;
+                }
+            }
+            .submitBtn {
+                input {
+                    margin-top: 1em;
+                    font-size: 1.05em;
+                }
+            }
+        }
+    }
 }

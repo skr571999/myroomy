@@ -5,8 +5,8 @@ const { ensureAuthenticated } = require('../../config/auth')
 const Room = require('../models/Room.model')
 
 router.get('/new', ensureAuthenticated, (req, res) => {
-    res.render('newRoom', {
-        title: 'New Room',
+    res.render('room/new', {
+        title: 'Add New Room',
         user: req.user
     })
 })
@@ -20,16 +20,19 @@ router.post('/add', ensureAuthenticated, (req, res) => {
     newRoom.save()
         .then((result) => {
             console.log(result)
+            res.redirect('/user/dashboard')
         })
         .catch(err => console.log(err.name))
-    res.send('Add room request')
-})
-router.get('/add', ensureAuthenticated, (req, res) => {
-    res.send('Add room request')
 })
 
 router.get('/all', ensureAuthenticated, (req, res) => {
-    res.send('All room request')
+    Room.find({}, { '_id': 0, '_v': 0 })
+        .then(result => {
+            res.render('room/all', {
+                rooms: result,
+                user: req.user
+            })
+        })
 })
 
 router.get('/edit', ensureAuthenticated, (req, res) => {

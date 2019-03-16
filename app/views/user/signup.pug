@@ -1,0 +1,52 @@
+extends ./../parts/_layout.pug
+
+block content
+    div.signupContainer 
+        h2 Add new User
+        include ./../parts/_messages.pug
+        form(action='/user/add' method='post' enctype="multipart/form-data")
+            div
+                span
+                    label User ID: 
+                span
+                    input(type='text' name='userid' value=userid?userid:'')
+            div
+                span
+                    label Email: 
+                span
+                    input(type='text' name='email' value=email?email:'')
+            div
+                span
+                    label Name: 
+                span
+                    input(type='text' name='name' value=name?name:'')
+            div
+                span
+                    label Mobile Number:
+                span
+                    input(type='number' name='mobileNumber' value=mobileNumber?mobileNumber:'')
+            div
+                span
+                    label Address:<br>
+                span
+                    textarea(name="address", cols="15", rows="5") 
+            div
+                span
+                    label Addhar Number:
+                span
+                    input(type='number' name='addharNumber' value=addharNumber?addharNumber:'')
+            div
+                span
+                    label Add a Photo
+                span
+                    input(type="file", name="photo" accept="image/*" )
+            div
+                span
+                    label Password:
+                span
+                    input(type='password' name='password' value=password?password:'')
+            div
+                span.center
+                    input(type='reset' value='Reset')
+                span.center
+                    input(type='submit' value='Submit')

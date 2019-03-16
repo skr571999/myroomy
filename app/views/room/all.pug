@@ -1,0 +1,15 @@
+extends ./../parts/_layout.pug
+
+block content
+    div.allRoomContainer
+        h2 All Rooms List
+        div.roomContainer
+            if rooms
+                each room in rooms
+                    div.room
+                        h3 Location : #{room.location}
+                        p Status : #{room.status}
+                        div Features : 
+                            ul
+                                each feature in room.features
+                                    li #{feature}

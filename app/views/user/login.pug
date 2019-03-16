@@ -1,0 +1,15 @@
+extends ./../parts/_layout.pug
+
+block content
+    div.loginContainer
+        h2 Login
+        include ./../parts/_messages.pug
+        form(action='/user/auth' method='post')
+            div
+                label Username:
+                input(type='text' name='userid')
+            div
+                label Password:
+                input(type='password' name='password')
+            div.submitBtn
+                input(type='submit' value='Submit')

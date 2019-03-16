@@ -3,31 +3,155 @@ body {
   font-family: sans-serif;
 }
 
-header {
-  background-color: #95b2ff;
+.main-header {
+  background-color: #ff7bc4;
+}
+.main-header ul {
   display: flex;
-}
-header div:nth-child(1) {
-  background-color: #68d170;
-  flex: auto;
-  padding: 1em;
-}
-header div:nth-child(2) {
-  background-color: #ffc2c2;
-}
-
-ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-ul li {
-  margin: 0.5em;
-  padding: 0.5em;
+.main-header ul li:nth-child(1) {
+  flex: auto;
+}
+.main-header ul li {
+  align-self: center;
+}
+.main-header ul li img {
   display: inline-block;
+  width: 100%;
+  max-width: 2.8em;
+  border-radius: 50%;
+}
+.main-header ul li a {
+  display: inline-block;
+  padding: 0.8em;
+  font-size: 1.2em;
 }
 
 .main-container {
   padding: 1em;
+}
+
+.homeContainer {
+  padding: 1em;
+}
+.homeContainer div p a {
+  margin-left: 2em;
+  font-size: 1.2em;
+}
+
+.dashboard .navContainer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.dashboard .navContainer ul li {
+  display: inline-block;
+  margin-right: 1.3em;
+}
+.dashboard .navContainer ul li a {
+  display: inline-block;
+  padding: 0.3em;
+}
+.dashboard .navContainer ul li a:hover {
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+.detailContainer {
+  padding: 1.5em;
+}
+.detailContainer .imageContainer {
+  margin-left: 5em;
+}
+.detailContainer .imageContainer img {
+  width: 100%;
+  max-width: 4em;
+}
+.detailContainer .detail {
+  padding: 1em 2em;
+}
+.detailContainer .detail ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.6em;
+  background-color: #fff;
+}
+.detailContainer .detail ul li {
+  display: flex;
+  color: #474747;
   text-align: center;
+}
+.detailContainer .detail ul li span {
+  background-color: #e2e2e2;
+  flex: 50%;
+  margin-bottom: 2px;
+  padding: 0.2em 0;
+  font-size: 1em;
+}
+
+.allRoomContainer .roomContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.allRoomContainer .roomContainer .room {
+  flex: 17em;
+  background-color: #ffc4c4;
+  padding: 0.7em;
+  margin: 0.5em;
+}
+.allRoomContainer .roomContainer .room h3,
+.allRoomContainer .roomContainer .room p,
+.allRoomContainer .roomContainer .room ul {
+  margin: 0.2em;
+}
+
+.loginContainer {
+  text-align: center;
+  font-size: 1.1em;
+}
+.loginContainer form div {
+  padding: 0.2em 0;
+}
+.loginContainer form .submitBtn input {
+  font-size: 1.05em;
+}
+
+.signupContainer h2 {
+  text-align: center;
+}
+.signupContainer form {
+  padding: 1.2em;
+  background-color: #ebebeb;
+  font-size: 1.05em;
+}
+.signupContainer form div {
+  display: flex;
+  padding: 0.3em;
+}
+.signupContainer form div span {
+  flex: 50%;
+}
+.signupContainer form div .center {
+  text-align: center;
+  margin-top: 1em;
+}
+.signupContainer form div .center input {
+  font-size: 1.05em;
+}
+
+.newRoomContainer h2 {
+  text-align: center;
+}
+.newRoomContainer .newRoomForm form {
+  padding: 2em;
+}
+.newRoomContainer .newRoomForm form > div .featureContainer {
+  margin-left: 2em;
+}
+.newRoomContainer .newRoomForm form .submitBtn input {
+  margin-top: 1em;
+  font-size: 1.05em;
 }

@@ -3,7 +3,10 @@ Simple Node local authentication app
 
 ## Usage
 ```
+$ cd ./app/public
 $ sass --watch ./styles/sass:styles --no-source-map
+```
+```
 $ mongod
 $ npm start
 ```

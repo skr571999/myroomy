@@ -1,0 +1,27 @@
+extends ./../parts/_layout.pug
+
+block content
+    div.newRoomContainer
+        h2 Add new Room Detail
+        div.newRoomForm
+            form(action="/room/add", method="post")
+                div
+                    label Location: 
+                    input(type="text", name="location")
+                div
+                    h3 Features
+                    div.featureContainer
+                        div
+                            input#toilet(type='checkbox' name='features' value='toilet')
+                            label(for='toilet') Toilet
+                        div
+                            input#bathroom(type='checkbox' name='features' value='bathroom')
+                            label(for='bathroom') Bathroom
+                        div
+                            input#kitchen(type='checkbox' name='features' value='kitchen')
+                            label(for='kitchen') Kitchen
+                        div
+                            input#electricity(type='checkbox' name='features' value='electricity')
+                            label(for='electricity') Electricity
+                div.submitBtn
+                    input(type="submit", value="Submit")

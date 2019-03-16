@@ -1,16 +1,40 @@
 extends ./parts/_layout.pug
 
 block content
-    h1 Dashboard
-    div
-        p Hello, #{user.name}
-    div
-        if user.userid === 'admin'
-            p
-                a(href="/user/all") Show All Users
-    if user
-        div
-            p
-                a(href="/room/new") Add New Room
-            p   
-                a(href="/room/all") Show all Rooms
+    div.dashboard
+        h4.text-center.text-muted Dashboard
+        div.navContainer
+            ul
+                li
+                    a(href="/room/new") Add New Room
+                li   
+                    a(href="/room/all") Show all Rooms
+                if user.userid === 'admin'
+                    li
+                        a(href="/user/all") Show All Users
+        div.detailContainer
+            h3.text-primary User Detail
+            div.imageContainer
+                img(src="/user/"+user.userid+'/photo', alt="Photo")
+            div.detail
+                ul
+                    li
+                        span Name
+                        span #{user.name}
+                    li
+                        span UserID
+                        span #{user.userid}
+                    li
+                        span Email
+                        span #{user.email}
+                    li
+                        span Mobile Number
+                        span #{user.mobileNumber}
+                    li
+                        span Address
+                        span #{user.address}
+                    li
+                        span Addhar Number
+                        span #{user.addharNumber}
+                p.mt-2
+                    a(href="/user/" + user.userid + "/photo") Show Photos

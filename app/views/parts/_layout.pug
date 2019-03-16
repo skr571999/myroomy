@@ -2,28 +2,28 @@ doctype html
 html
     head
         title #{title}
-        link(rel="stylesheet", href="/styles/bootstrap.min.css")
+        //- link(rel="stylesheet", href="/styles/bootstrap.min.css")
         link(rel="stylesheet", href="/styles/main.css")
         meta(name="theme-color" content="#e4e4e4")
         link(rel="icon" sizes="192x192" href="/icons/room-icon.png")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         block scripts
     body
-        header
-            div
+        header.main-header
+            ul
                 if user
-                    a() Node App - #{user.username}
-                else 
-                    a() Node App
-            div
-                ul
-                    if !user
-                        li
-                            a(href="/user/login") Login
-                        li
-                            a(href="/user/signup") Signup
-                    else 
-                        li
-                            a(href="/user/logout") Logout
+                    li
+                        a() MyRoomy - #{user.name}
+                    li
+                        img(src="/user/"+user.userid+"/photo" alt="Photo")
+                    li
+                        a(href="/user/logout") Logout
+                else
+                    li
+                        a() MyRoomy
+                    li
+                        a(href="/user/login") Login
+                    li
+                        a(href="/user/signup") Signup
         .main-container
             block content

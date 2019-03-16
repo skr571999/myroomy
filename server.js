@@ -9,7 +9,7 @@ const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const dbURL = require('./config/db.config').urlCloud;
+const dbURL = require('./config/db.config').url;
 
 // Disable to use useFindAndModify globally
 mongoose.set('useFindAndModify', false);

@@ -1,12 +1,19 @@
 body {
   margin: 0;
   font-family: sans-serif;
+  background-color: #f7f7f7;
 }
 
 .main-header {
-  background-color: #ff7bc4;
+  background-color: #ffffff;
+  box-shadow: 0 0 2px #6481ff;
+  padding: 0 1em;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
 }
 .main-header ul {
+  height: 3em;
   display: flex;
   list-style-type: none;
   margin: 0;
@@ -15,23 +22,22 @@ body {
 .main-header ul li:nth-child(1) {
   flex: auto;
 }
+.main-header ul li:nth-child(1) img {
+  max-width: 7em;
+  display: inline-block;
+}
 .main-header ul li {
   align-self: center;
 }
-.main-header ul li img {
+.main-header ul li img.userAvtar {
   display: inline-block;
   width: 100%;
-  max-width: 2.8em;
+  max-width: 2.1em;
   border-radius: 50%;
-}
-.main-header ul li a {
-  display: inline-block;
-  padding: 0.8em;
-  font-size: 1.2em;
 }
 
 .main-container {
-  padding: 1em;
+  padding: 3.5em 1em 1em 1em;
 }
 
 .homeContainer {
@@ -40,24 +46,6 @@ body {
 .homeContainer div p a {
   margin-left: 2em;
   font-size: 1.2em;
-}
-
-.dashboard .navContainer ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-.dashboard .navContainer ul li {
-  display: inline-block;
-  margin-right: 1.3em;
-}
-.dashboard .navContainer ul li a {
-  display: inline-block;
-  padding: 0.3em;
-}
-.dashboard .navContainer ul li a:hover {
-  background-color: #fff;
-  border-radius: 3px;
 }
 
 .detailContainer {
@@ -106,40 +94,6 @@ body {
 .allRoomContainer .roomContainer .room p,
 .allRoomContainer .roomContainer .room ul {
   margin: 0.2em;
-}
-
-.loginContainer {
-  text-align: center;
-  font-size: 1.1em;
-}
-.loginContainer form div {
-  padding: 0.2em 0;
-}
-.loginContainer form .submitBtn input {
-  font-size: 1.05em;
-}
-
-.signupContainer h2 {
-  text-align: center;
-}
-.signupContainer form {
-  padding: 1.2em;
-  background-color: #ebebeb;
-  font-size: 1.05em;
-}
-.signupContainer form div {
-  display: flex;
-  padding: 0.3em;
-}
-.signupContainer form div span {
-  flex: 50%;
-}
-.signupContainer form div .center {
-  text-align: center;
-  margin-top: 1em;
-}
-.signupContainer form div .center input {
-  font-size: 1.05em;
 }
 
 .newRoomContainer h2 {

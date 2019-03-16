@@ -2,9 +2,12 @@ extends ./parts/_layout.pug
 
 block content
     div.homeContainer
-        h1 Home
-        div
-            p
-                a(href='/user/login') Login
-            p
-                a(href='/user/signup') Sign Up
+        h2 Home
+        div.row
+            each room in rooms
+                div.bg-info.p-2.my-2.col-12.mx-auto.col-sm-10.rounded
+                    .h4 Location : #{room.location}
+                    p.h5 Features :
+                    ul
+                        each feature in room.features
+                            li #{feature}      

@@ -1,15 +1,16 @@
 extends ./../parts/_layout.pug
 
 block content
-    div.loginContainer
-        h2 Login
-        include ./../parts/_messages.pug
-        form(action='/user/auth' method='post')
-            div
-                label Username:
-                input(type='text' name='userid')
-            div
-                label Password:
-                input(type='password' name='password')
-            div.submitBtn
-                input(type='submit' value='Submit')
+    div.loginContainer.p-3
+        h4.text-center.text-muted Login Form
+        div.row
+            form(action='/user/auth' method='post').col-9.col-md-6.col-xl-4.mx-auto
+                div.form-group
+                    label(for="exampleInputEmail1") UserID
+                    input.ml-3(type="text" name='userid' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter userid")
+                    small.ml-4(id="emailHelp" class="form-text text-muted") We'll never share your information with anyone else.
+                div.form-group
+                    label(for="exampleInputPassword1") Password
+                    input.ml-3(type="password" name='password' class="form-control" id="exampleInputPassword1" placeholder="Password")
+                div.text-center
+                    input.btn.btn-primary(type='submit' value='Submit')

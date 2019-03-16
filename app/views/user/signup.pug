@@ -1,52 +1,35 @@
 extends ./../parts/_layout.pug
 
 block content
-    div.signupContainer 
-        h2 Add new User
-        include ./../parts/_messages.pug
-        form(action='/user/add' method='post' enctype="multipart/form-data")
-            div
-                span
-                    label User ID: 
-                span
-                    input(type='text' name='userid' value=userid?userid:'')
-            div
-                span
-                    label Email: 
-                span
-                    input(type='text' name='email' value=email?email:'')
-            div
-                span
-                    label Name: 
-                span
-                    input(type='text' name='name' value=name?name:'')
-            div
-                span
-                    label Mobile Number:
-                span
-                    input(type='number' name='mobileNumber' value=mobileNumber?mobileNumber:'')
-            div
-                span
-                    label Address:<br>
-                span
-                    textarea(name="address", cols="15", rows="5") 
-            div
-                span
-                    label Addhar Number:
-                span
-                    input(type='number' name='addharNumber' value=addharNumber?addharNumber:'')
-            div
-                span
-                    label Add a Photo
-                span
-                    input(type="file", name="photo" accept="image/*" )
-            div
-                span
-                    label Password:
-                span
-                    input(type='password' name='password' value=password?password:'')
-            div
-                span.center
-                    input(type='reset' value='Reset')
-                span.center
-                    input(type='submit' value='Submit')
+    div.signupContainer.p-3
+        h4.text-muted.text-center Add new User
+        div.row
+            form(action='/user/add' method='post' enctype="multipart/form-data").col-9.col-sm-6.col-xl-4.mx-auto
+                div.form-group
+                    label(for="userID") UserID
+                    input.ml-3(type="text" name='userid' value=userid?userid:'' class="form-control" id="userID" aria-describedby="emailHelp" placeholder="Enter userid")
+                    small.ml-4(id="emailHelp" class="form-text text-muted") Choose a unique UserID.
+                div.form-group
+                    label(for="email") Email
+                    input.ml-3(type='email' name='email' value=email?email:'' class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Email")
+                div.form-group
+                    label(for="name") Name
+                    input.ml-3(type='text' name='name' value=name?name:'' class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Name")
+                div.form-group
+                    label(for="mobileNumber") Mobile Number
+                    input.ml-3(type='number' name='mobileNumber' value=mobileNumber?mobileNumber:'' class="form-control" id="mobileNumber" aria-describedby="emailHelp" placeholder="Enter Mobile Number")
+                div.form-group
+                    label(for="address") Address
+                    textarea.ml-3(name='address' class="form-control" id="address" rows="3" placeholder="e.g. 'Bijnor'")
+                div.form-group
+                    label(for="addharNumber") Addhar Number
+                    input.ml-3(type='number' name='addharNumber' value=addharNumber?addharNumber:'' class="form-control" id="addharNumber" aria-describedby="emailHelp" placeholder="Enter Addhar Number")
+                div.form-group
+                    label(for="photo") Add a Photo
+                    input.ml-3(type="file" id='photo' name="photo" accept="image/*" class='form-control-file')
+                div.form-group
+                    label(for="password1") Password
+                    input.ml-3(type="password" name='password'  value=password?password:'' class="form-control" id="password1" placeholder="Password")
+                div.row.justify-content-around.mt-4
+                    input.btn.btn-primary(type='reset' value='Reset')
+                    input.btn.btn-primary(type='submit' value='Submit')

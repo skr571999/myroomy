@@ -9,10 +9,9 @@ module.exports = (passport) => {
         User.findOne({ userid: username })
             .then(user => {
                 // check user exists
-                console.log(user.name)
                 if (!user) {
                     console.log('Not a user')
-                    return done(null, false)
+                    return done(null, false, { message: "User not founded" })
                 }
                 // Match password
                 if (password === user.password) {
@@ -21,7 +20,7 @@ module.exports = (passport) => {
                 } else {
                     // handle incorrect password
                     console.log('Incorrect password')
-                    return done(null, false)
+                    return done(null, false, { message: "Password Incorrect" })
                 }
             })
             .catch(err => console.log(err))

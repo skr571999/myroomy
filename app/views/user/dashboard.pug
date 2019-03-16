@@ -1,17 +1,8 @@
-extends ./parts/_layout.pug
+extends ./../parts/_layout.pug
 
 block content
     div.dashboard
         h4.text-center.text-muted Dashboard
-        div.navContainer
-            ul
-                li
-                    a(href="/room/new") Add New Room
-                li   
-                    a(href="/room/all") Show all Rooms
-                if user.userid === 'admin'
-                    li
-                        a(href="/user/all") Show All Users
         div.detailContainer
             h3.text-primary User Detail
             div.imageContainer

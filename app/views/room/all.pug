@@ -8,7 +8,8 @@ block content
                 each room in rooms
                     div.room
                         h3 Location : #{room.location}
-                        p Status : #{room.status}
+                        if room.status
+                            p Status : #{room.status}
                         div Features : 
                             ul
                                 each feature in room.features

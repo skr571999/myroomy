@@ -1,39 +1,43 @@
 body {
     margin: 0;
     font-family: sans-serif;
+    background-color: rgb(247, 247, 247);
 }
 
 .main-header {
-    background-color: #ff7bc4;
+    background-color: #ffffff;
+    box-shadow: 0 0 2px #6481ff;
+    padding: 0 1em;
+    position: fixed;
+    width: 100%;
+    z-index: 5;
     ul {
+        height: 3em;
         display: flex;
         list-style-type: none;
         margin: 0;
         padding: 0;
         li:nth-child(1) {
             flex: auto;
-        }
-        li {
-            align-self: center;
-            img {
+            img{
+                max-width: 7em;
                 display: inline-block;
-                width: 100%;
-                max-width: 2.8em;
-                border-radius: 50%;
             }
         }
         li {
-            a {
+            align-self: center;
+            img.userAvtar {
                 display: inline-block;
-                padding: .8em;
-                font-size: 1.2em;
+                width: 100%;
+                max-width: 2.1em;
+                border-radius: 50%;
             }
         }
     }
 }
 
 .main-container {
-    padding: 1em;
+    padding: 3.5em 1em 1em 1em;
 }
 
 .homeContainer {
@@ -43,28 +47,6 @@ body {
             a {
                 margin-left: 2em;
                 font-size: 1.2em;
-            }
-        }
-    }
-}
-
-.dashboard {
-    .navContainer {
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            li {
-                display: inline-block;
-                margin-right: 1.3em;
-                a {
-                    display: inline-block;
-                    padding: .3em;
-                    &:hover {
-                        background-color: #fff;
-                        border-radius: 3px;
-                    }
-                }
             }
         }
     }
@@ -115,46 +97,6 @@ body {
             p,
             ul {
                 margin: .2em;
-            }
-        }
-    }
-}
-
-.loginContainer {
-    text-align: center;
-    font-size: 1.1em;
-    form {
-        div {
-            padding: .2em 0;
-        }
-        .submitBtn {
-            input {
-                font-size: 1.05em;
-            }
-        }
-    }
-}
-
-.signupContainer {
-    h2 {
-        text-align: center;
-    }
-    form {
-        padding: 1.2em;
-        background-color: rgb(235, 235, 235);
-        font-size: 1.05em;
-        div {
-            display: flex;
-            padding: 0.3em;
-            span {
-                flex: 50%;
-            }
-            .center {
-                text-align: center;
-                margin-top: 1em;
-                input {
-                    font-size: 1.05em;
-                }
             }
         }
     }

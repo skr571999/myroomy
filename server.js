@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const path = require('path');
-const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,7 +19,6 @@ mongoose.connect(dbURL, { useNewUrlParser: true })
         process.exit();
     })
 
-app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 app.use(cookieParser());
@@ -31,12 +29,6 @@ app.use(session({
 }))
 app.use(flash());
 
-app.use((req, res, next) => {
-    res.locals.success = req.flash('success')
-    res.locals.error = req.flash('error')
-    next();
-})
-
 // Passport Setup
 app.use(passport.initialize());
 app.use(passport.session());
@@ -46,10 +38,28 @@ require('./config/passport.config')(passport);
 app.set('views', './app/views')
 app.set('view engine', 'pug')
 
+// Room Model
+const Room = require('./app/models/Room.model')
+
 // Routings
 app.use(express.static(path.join(__dirname + '/app/public')))
-app.get('/', (req, res) => { res.render('home') })
+app.get('/', (req, res) => {
+    Room.find({}, { "_id": 0, "__v": 0, 'status': 0 })
+        .then(result => {
+            res.render('home', {
+                title: 'Home',
+                rooms: result
+            })
+        })
+        .catch(err => {
+            req.flash('error', 'Error in the Request: ' + err.name)
+            res.render('home', {
+                title: 'Home',
+                rooms: ''
+            })
+        })
+})
 app.use('/user', require('./app/routes/user.route'))
-app.use('/room',require('./app/routes/room.route'))
+app.use('/room', require('./app/routes/room.route'))
 
 app.listen(PORT, console.log(`Server running on ${PORT}`));

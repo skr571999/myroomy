@@ -1,5 +1,5 @@
-div.navContainer
-    nav.p-2
+div.navContainer.ml-2.mt-2
+    nav
         ul.row.list-unstyled
             li.mr-2
                 a.btn.btn-primary.btn-sm(href="/") Home
@@ -12,3 +12,6 @@ div.navContainer
             if user && user.userid === 'admin'
                 li.mr-2
                     a.btn.btn-primary.btn-sm(href="/user/all") All Users
+            if title === "Dashboard"
+                li.mr-2
+                    a.btn.btn-primary.btn-sm(href="/user/edit") Edit Detail

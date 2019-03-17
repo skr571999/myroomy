@@ -10,3 +10,6 @@ if messages.error
     +message('danger',messages.error)
 if messages.warning
     +message('warning',messages.warning)
+if msgs
+    each msg in msgs
+        +message('danger',msg)

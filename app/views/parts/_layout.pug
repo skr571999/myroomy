@@ -25,8 +25,8 @@ html
                     if title !== "Sign Up"
                         li
                             a.btn.btn-primary.btn-sm(href="/user/signup") Signup
+        include ./_nav.pug
         .main-container
-            include ./_nav.pug
             include ./_messages.pug
             block content
         

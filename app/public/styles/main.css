@@ -30,6 +30,7 @@ body {
   align-self: center;
 }
 .main-header ul li img.userAvtar {
+  border: 2px solid #444444;
   display: inline-block;
   width: 100%;
   max-width: 2.1em;
@@ -37,7 +38,15 @@ body {
 }
 
 .main-container {
-  padding: 3.5em 1em 1em 1em;
+  padding: 7em 1em 1em 1em;
+}
+
+.navContainer {
+  background-color: rgba(255, 255, 255, 0);
+  position: fixed;
+  width: 100%;
+  padding: 3.4em 0 1em 1em;
+  z-index: 4;
 }
 
 .homeContainer {

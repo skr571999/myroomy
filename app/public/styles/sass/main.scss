@@ -19,7 +19,7 @@ body {
         padding: 0;
         li:nth-child(1) {
             flex: auto;
-            img{
+            img {
                 max-width: 7em;
                 display: inline-block;
             }
@@ -27,6 +27,7 @@ body {
         li {
             align-self: center;
             img.userAvtar {
+                border: 2px solid rgb(68, 68, 68);
                 display: inline-block;
                 width: 100%;
                 max-width: 2.1em;
@@ -37,7 +38,15 @@ body {
 }
 
 .main-container {
-    padding: 3.5em 1em 1em 1em;
+    padding: 7em 1em 1em 1em;
+}
+
+.navContainer{
+    background-color: rgba(255, 255, 255, 0);
+    position: fixed;
+    width: 100%;
+    padding: 3.4em 0 1em 1em;
+    z-index: 4;
 }
 
 .homeContainer {

@@ -42,45 +42,46 @@ router.post("/add", upload.single('photo'), (req, res) => {
 		finalImg = ''
 	}
 
-	User.findOne({ userid: userid }).then(user => {
-		// User Matched
-		if (user) {
-			msgs.push("User already registered");
-			res.render("signup", {
-				msgs,
-				userid,
-				email,
-				name,
-				mobileNumber,
-				address,
-				addharNumber,
-				password
-			});
-		} else {
-			// User Not exists
-			const newUser = new User({
-				userid,
-				email,
-				name,
-				mobileNumber,
-				address,
-				addharNumber,
-				photo: finalImg,
-				password
-			});
-
-			newUser
-				.save()
-				.then(result => {
-					req.flash("success", "User Registration Success, You can login now");
-					res.redirect("/user/login");
-				})
-				.catch(err => {
-					console.log(err)
-					res.send("User not Registered ");
+	User.findOne({ "userid": userid })
+		.then(user => {
+			// User Matched
+			if (user) {
+				msgs.push("User already registered");
+				res.render("user/signup", {
+					msgs,
+					userid,
+					email,
+					name,
+					mobileNumber,
+					address,
+					addharNumber,
+					password
 				});
-		}
-	});
+			} else {
+				// User Not exists
+				const newUser = new User({
+					userid,
+					email,
+					name,
+					mobileNumber,
+					address,
+					addharNumber,
+					photo: finalImg,
+					password
+				});
+
+				newUser
+					.save()
+					.then(result => {
+						req.flash("success", "User Registration Success, You can login now");
+						res.redirect("/user/login");
+					})
+					.catch(err => {
+						console.log(err)
+						res.send("User not Registered ");
+					});
+			}
+		});
 });
 
 router.get("/login", (req, res) => {
@@ -164,14 +165,26 @@ router.get("/all", ensureAuthenticated, (req, res) => {
 	}
 });
 
-// router.get('/edit', ensureAuthenticated, (req, res) => {
-//     res.render('user/editUser', {
-//         title: 'Editting User',
-//         user: req.user
-//     })
-// })
+router.get('/edit', ensureAuthenticated, (req, res) => {
+	res.render('user/edit', {
+		title: 'Editting User',
+		user: req.user
+	})
+})
 
-// router.get('/editted',ensureAuthenticated,(req,res)=>{
-// })
+router.post('/editted', ensureAuthenticated, (req, res) => {
+	const { userid, name, mobileNumber } = req.body
+	User.updateOne({ "userid": userid }, { "name": name, "mobileNumber": mobileNumber })
+		.then(result => {
+			console.log(result)
+			req.flash('success', 'Detail updated successfully')
+			res.redirect('/user/dashboard')
+		})
+		.catch(err => {
+			console.log('Update Error : ', err.name)
+			req.flash('danger', 'Error in the request')
+			res.redirect('/user/dashboard')
+		})
+})
 
 module.exports = router;

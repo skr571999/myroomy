@@ -48,7 +48,8 @@ app.get('/', (req, res) => {
         .then(result => {
             res.render('home', {
                 title: 'Home',
-                rooms: result
+                rooms: result,
+                user: req.user
             })
         })
         .catch(err => {

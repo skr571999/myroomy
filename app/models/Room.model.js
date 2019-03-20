@@ -12,7 +12,23 @@ const roomSchema = new mongoose.Schema({
     status: {
         type: Boolean,
         default: true
-    }
+    },
+    persons: {
+        type: Number,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    userid:{
+        type: String,
+        required: true
+    },
+    photos: [{
+        contentType: String,
+        image: Buffer
+    }]
 });
 
 module.exports = mongoose.model('Room', roomSchema)

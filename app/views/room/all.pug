@@ -2,15 +2,20 @@ extends ./../parts/_layout.pug
 
 block content
     div.allRoomContainer
-        h2 All Rooms List
-        div.roomContainer
-            if rooms
-                each room in rooms
-                    div.room
-                        h3 Location : #{room.location}
-                        if room.status
-                            p Status : #{room.status}
-                        div Features : 
-                            ul
-                                each feature in room.features
-                                    li #{feature}
+        h4.text-center.text-muted All Rooms List
+        div.row
+            each room in rooms
+                a(href="/room/"+ room._id).col-10.mx-auto.my-2
+                    div.bg-white.py-2.rounded.row.border
+                        .col-4.align-self-center
+                            img(src="/room/"+room._id+"/photo", alt="Image")
+                        .col-8
+                            p.text-dark.font-weight-bold.m-0 Location : #{room.location}
+                            - let status = room.status === true?'Available':'Not Available'
+                            p.text-muted.m-0 Current Status : #{status}
+                            p.text-muted.m-0 Price : #{room.price}
+                            p.text-muted.m-0 No. of People can live : #{room.persons}
+                            div Features : 
+                                ul.list-inline.m-0.features.ml-4.pb-2
+                                    each feature in room.features
+                                        li.list-inline-item.bg-primary.text-white.p-1.rounded.text-capitalize #{feature}

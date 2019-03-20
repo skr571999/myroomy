@@ -17,14 +17,14 @@ html
                     li
                         img.userAvtar.mr-2(src="/user/"+user.userid+"/photo" alt="Photo")
                     li
-                        a.btn.btn-primary.btn-sm(href="/user/logout") Logout
+                        a.btn.btn-outline-primary.btn-sm(href="/user/logout") Logout
                 else
                     if title !== 'Login'
                         li
-                            a.btn.btn-primary.btn-sm.mr-2(href="/user/login") Login
+                            a.btn.btn-outline-primary.btn-sm.mr-2(href="/user/login") Login
                     if title !== "Sign Up"
                         li
-                            a.btn.btn-primary.btn-sm(href="/user/signup") Signup
+                            a.btn.btn-outline-primary.btn-sm(href="/user/signup") Signup
         include ./_nav.pug
         .main-container
             include ./_messages.pug

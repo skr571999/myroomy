@@ -44,7 +44,7 @@ const Room = require('./app/models/Room.model')
 // Routings
 app.use(express.static(path.join(__dirname + '/app/public')))
 app.get('/', (req, res) => {
-    Room.find({}, { "_id": 0, "__v": 0, 'status': 0 })
+    Room.find({})
         .then(result => {
             res.render('home', {
                 title: 'Home',

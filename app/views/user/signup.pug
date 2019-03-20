@@ -16,6 +16,18 @@ block content
                     label(for="name") Name
                     input.ml-3(type='text' name='name' value=name?name:'' class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Name" maxlength='25' required)
                 div.form-group
+                    p Choose Gender
+                    div.ml-4
+                        div.form-check.form-check-inline
+                            input(type="radio" name="gender" class="form-check-input" id="male" value="male" required)
+                            label(for="male").form-check-label Male
+                        div.form-check.form-check-inline
+                            input(type="radio" name="gender" class="form-check-input" id="female" value="female" required)
+                            label(for="female").form-check-label Female
+                        div.form-check.form-check-inline
+                            input(type="radio" name="gender" class="form-check-input" id="other" value="other" required)
+                            label(for="other").form-check-label Other
+                div.form-group
                     label(for="mobileNumber") Mobile Number
                     input.ml-3(type='number' name='mobileNumber' value=mobileNumber?mobileNumber:'' class="form-control" id="mobileNumber" aria-describedby="emailHelp" placeholder="Enter Mobile Number" maxlength='10' required)
                 div.form-group

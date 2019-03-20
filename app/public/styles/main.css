@@ -89,32 +89,16 @@ body {
   font-size: 1em;
 }
 
-.allRoomContainer .roomContainer {
-  display: flex;
-  flex-wrap: wrap;
+.allRoomContainer a, .homeContainer a {
+  text-decoration: none;
 }
-.allRoomContainer .roomContainer .room {
-  flex: 17em;
-  background-color: #ffc4c4;
-  padding: 0.7em;
-  margin: 0.5em;
+.allRoomContainer a > div:hover, .homeContainer a > div:hover {
+  box-shadow: 0 0 10px #858585;
 }
-.allRoomContainer .roomContainer .room h3,
-.allRoomContainer .roomContainer .room p,
-.allRoomContainer .roomContainer .room ul {
-  margin: 0.2em;
+.allRoomContainer a > div .features li, .homeContainer a > div .features li {
+  font-size: 0.8em;
 }
-
-.newRoomContainer h2 {
-  text-align: center;
-}
-.newRoomContainer .newRoomForm form {
-  padding: 2em;
-}
-.newRoomContainer .newRoomForm form > div .featureContainer {
-  margin-left: 2em;
-}
-.newRoomContainer .newRoomForm form .submitBtn input {
-  margin-top: 1em;
-  font-size: 1.05em;
+.allRoomContainer a > div img, .homeContainer a > div img {
+  max-width: 10em;
+  width: 100%;
 }

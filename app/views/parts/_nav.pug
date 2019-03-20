@@ -1,17 +1,17 @@
 div.navContainer.ml-2.mt-2
     nav
         ul.row.list-unstyled
-            li.mr-2
+            li.mr-1
                 a.btn.btn-primary.btn-sm(href="/") Home
-            li.mr-2
+            li.mr-1
                 a.btn.btn-primary.btn-sm(href="/user/dashboard") Dashboard
-            li.mr-2
+            li.mr-1
                 a.btn.btn-primary.btn-sm(href="/room/new") Add New Room
-            li.mr-2
+            li.mr-1
                 a.btn.btn-primary.btn-sm(href="/room/all") Show All Rooms
             if user && user.userid === 'admin'
-                li.mr-2
+                li.mr-1
                     a.btn.btn-primary.btn-sm(href="/user/all") All Users
             if title === "Dashboard"
-                li.mr-2
+                li.mr-1
                     a.btn.btn-primary.btn-sm(href="/user/edit") Edit Detail

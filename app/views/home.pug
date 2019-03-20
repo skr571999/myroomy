@@ -2,12 +2,18 @@ extends ./parts/_layout.pug
 
 block content
     div.homeContainer
-        h2 Home
+        h4.text-center.text-muted Home
         div.row
             each room in rooms
-                div.bg-info.p-2.my-2.col-12.mx-auto.col-sm-10.rounded
-                    .h4 Location : #{room.location}
-                    p.h5 Features :
-                    ul
-                        each feature in room.features
-                            li #{feature}      
+                a(href="/room/"+ room._id).col-10.mx-auto.my-2
+                    div.bg-white.px-4.py-2.rounded.row
+                        .col-4
+                            img.img-fluid(src="/room/"+room._id+"/photo", alt="Image")
+                        .col-8
+                            h4.text-dark Location : #{room.location}
+                            p.text-muted.m-0 Price : #{room.price}
+                            p.text-muted.m-0 No. of People can live : #{room.persons}
+                            div Features : 
+                                ul.list-inline.m-0.features.ml-4.pb-2
+                                    each feature in room.features
+                                        li.list-inline-item.bg-primary.text-white.p-1.rounded #{feature.toUpperCase()}

@@ -93,41 +93,21 @@ body {
     }
 }
 
-.allRoomContainer {
-    .roomContainer {
-        display: flex;
-        flex-wrap: wrap;
-        .room {
-            flex: 17em;
-            background-color: rgb(255, 196, 196);
-            padding: .7em;
-            margin: .5em;
-            h3,
-            p,
-            ul {
-                margin: .2em;
+.allRoomContainer,.homeContainer{
+    a{
+        text-decoration: none;
+        >div{
+            &:hover{
+                box-shadow: 0 0 10px rgb(133, 133, 133);
             }
-        }
-    }
-}
-
-.newRoomContainer {
-    h2 {
-        text-align: center;
-    }
-    .newRoomForm {
-        form {
-            padding: 2em;
-            >div {
-                .featureContainer {
-                    margin-left: 2em;
+            .features{
+                li{
+                    font-size: .8em;
                 }
             }
-            .submitBtn {
-                input {
-                    margin-top: 1em;
-                    font-size: 1.05em;
-                }
+            img{
+                max-width: 10em;
+                width: 100%;
             }
         }
     }

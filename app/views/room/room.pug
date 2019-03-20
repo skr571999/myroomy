@@ -1,0 +1,16 @@
+extends ./../parts/_layout.pug
+
+block content
+    div.roomContainer.p-3
+        div.row
+            div.col-6
+                img(src="/room/"+room._id+"/photo", alt="Photo").img-fluid
+            div.col-6
+                h3.text-muted Location : #{room.location}
+                - let status = room.status === true?'Available':'Not Available'
+                p.text-muted.m-0 Current Status : #{status}
+                ul
+                    each feature in room.features
+                        li #{feature.toUpperCase()}
+                div.row.justify-content-center
+                    a(href="/room/book").btn.btn-primary Book Room

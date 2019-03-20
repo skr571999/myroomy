@@ -1,25 +1,24 @@
 extends ./../parts/_layout.pug
 
 block content
-    div.editUserContainer.p-3
-        h4.text-center.text-muted Edit Detail
-        div.row
-            form(action="/user/editted", method="post").col-9.col-sm-6.col-xl-4.mx-auto
-                div.form-group
-                    label(for='userid') User Userid :
-                    input#userid.form-control.ml-3(type="text", name="userid" value=user.userid?user.userid:'' readonly)
-                div.form-group
-                    label(for='name') User Name : 
-                    input.form-control.ml-3(type='text' name='name' id='name' value=user.name?user.name:'' required)
-                div.form-group
-                    label(for='mobileNumber') User Mobile Number :
-                    input#mobileNumber.form-control.ml-3(type="text", name="mobileNumber" value=user.mobileNumber?user.mobileNumber:'' required)
-                div.form-group
-                    label(for='email') User Email :
-                    input#email.form-control.ml-3(type="text", name="email" value=user.email?user.email:'' readonly)
-                div.form-group
-                    label(for='addharNumber') User Addhar Number :
-                    input#addharNumber.form-control.ml-3(type="text", name="addharNumber" value=user.addharNumber?user.addharNumber:'' readonly)
-                div.row.justify-content-around.mt-4
-                    input.btn.btn-primary(type="submit", value="Submit")
-            
+	div.editUserContainer.p-3
+		h4.text-center.text-muted Edit Detail
+		div.row
+			form(action="/user/editted", method="post").col-9.col-sm-6.col-xl-4.mx-auto
+				div.form-group
+					label(for='userid') User Userid :
+					input#userid.form-control.ml-3(type="text", name="userid" value=user.userid?user.userid:'' readonly)
+				div.form-group
+					label(for='name') User Name :
+					input.form-control.ml-3(type='text' name='name' id='name' value=user.name?user.name:'' required)
+				div.form-group
+					label(for='mobileNumber') User Mobile Number :
+					input#mobileNumber.form-control.ml-3(type="text", name="mobileNumber" value=user.mobileNumber?user.mobileNumber:'' required)
+				div.form-group
+					label(for='email') User Email :
+					input#email.form-control.ml-3(type="text", name="email" value=user.email?user.email:'' readonly)
+				div.form-group
+					label(for='addharNumber') User Addhar Number :
+					input#addharNumber.form-control.ml-3(type="text", name="addharNumber" value=user.addharNumber?user.addharNumber:'' readonly)
+				div.row.justify-content-around.mt-4
+					input.btn.btn-primary(type="submit", value="Submit")

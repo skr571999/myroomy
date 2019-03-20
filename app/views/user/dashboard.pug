@@ -1,29 +1,29 @@
 extends ./../parts/_layout.pug
 
 block content
-    div.dashboard
-        h4.text-center.text-muted Dashboard
-        div.detailContainer
-            h3.text-primary User Detail
-            div.imageContainer
-                img(src="/user/"+user.userid+'/photo', alt="Photo")
-            div.detail
-                ul
-                    li
-                        span Name
-                        span #{user.name}
-                    li
-                        span UserID
-                        span #{user.userid}
-                    li
-                        span Email
-                        span #{user.email}
-                    li
-                        span Mobile Number
-                        span #{user.mobileNumber}
-                    li
-                        span Address
-                        span #{user.address}
-                    li
-                        span Addhar Number
-                        span #{user.addharNumber}
+	div.dashboard
+		h4.text-center.text-muted Dashboard
+		div.detailContainer
+			h3.text-primary User Detail
+			div.imageContainer
+				img(src="/user/"+user.userid+'/photo', alt="Photo")
+			div.detail
+				ul
+					li
+						span Name
+						span #{user.name}
+					li
+						span UserID
+						span #{user.userid}
+					li
+						span Email
+						span #{user.email}
+					li
+						span Mobile Number
+						span #{user.mobileNumber}
+					li
+						span Address
+						span #{user.address}
+					li
+						span Addhar Number
+						span #{user.addharNumber}

@@ -1,15 +1,15 @@
 mixin message(alt,msg)
-    div.alert.alert-dismissible.fade.show.mx-4(role="alert" class = ['alert-' + alt])
-        span #{msg}
-        button.close(type="button" data-dismiss="alert" aria-label="Close")
-            span(aria-hidden="true") &times;
+	div.alert.alert-dismissible.fade.show.mx-4(role="alert" class = ['alert-' + alt])
+		span #{msg}
+		button.close(type="button" data-dismiss="alert" aria-label="Close")
+			span(aria-hidden="true") &times;
 
 if messages.success
-    +message('success',messages.success)
+	+message('success',messages.success)
 if messages.error
-    +message('danger',messages.error)
+	+message('danger',messages.error)
 if messages.warning
-    +message('warning',messages.warning)
+	+message('warning',messages.warning)
 if msgs
-    each msg in msgs
-        +message('danger',msg)
+	each msg in msgs
+		+message('danger',msg)

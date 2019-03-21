@@ -1,115 +1,177 @@
 body {
-	margin: 0;
-	font-family: sans-serif;
-	background-color: rgb(247, 247, 247);
-}
-
-.main-header {
-	background-color: #ffffff;
-	box-shadow: 0 0 2px #6481ff;
-	padding: 0 1em;
-	position: fixed;
-	width: 100%;
-	z-index: 5;
-	ul {
-		height: 3em;
-		display: flex;
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-		li:nth-child(1) {
-			flex: auto;
-			img {
-				max-width: 7em;
-				display: inline-block;
-			}
-		}
-		li {
-			align-self: center;
-			img.userAvtar {
-				border: 2px solid rgb(68, 68, 68);
-				display: inline-block;
-				width: 100%;
-				max-width: 2.1em;
-				border-radius: 50%;
-			}
-		}
-	}
-}
-
-.main-container {
-	padding: 7em 1em 1em 1em;
+  margin: 0;
+  font-family: sans-serif;
+  background-color: rgb(247, 247, 247);
 }
 
 .navContainer {
-	background-color: rgba(255, 255, 255, 0);
-	position: fixed;
-	width: 100%;
-	padding: 3.4em 0 1em 1em;
-	z-index: 4;
+  position: fixed;
+  width: 100%;
+  height: 3.2em;
+  z-index: 5;
+  box-shadow: 0 0 5px rgb(110, 110, 110);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5em;
+  div {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        display: inline-block;
+      }
+    }
+  }
+  .navIcon {
+    cursor: pointer;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    background-color: #ffffff;
+    i {
+      font-size: 2.3em;
+    }
+  }
+  .mainLogo {
+    margin-left: 1em;
+    flex: auto;
+    img {
+      width: 100%;
+      max-width: 7em;
+    }
+  }
+  .navLinks {
+    position: absolute;
+    width: 10em;
+    height: 100em;
+    top: 3.2em;
+    left: 0em;
+    z-index: 4;
+    background-color: #a7a7a7;
+    ul {
+      li {
+        display: block;
+        text-align: center;
+        margin: 3px;
+        a {
+          display: block;
+          background-color: #fff;
+          padding: 0.8em;
+          margin-bottom: 3px;
+          text-decoration: none;
+          &:hover {
+            background-color: rgb(66, 94, 255);
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  .userAction {
+    img.userAvtar {
+      border: 2px solid rgb(68, 68, 68);
+      display: inline-block;
+      width: 100%;
+      max-width: 2.1em;
+      border-radius: 50%;
+    }
+  }
 }
 
-.homeContainer {
-	padding: 1em;
-	div {
-		p {
-			a {
-				margin-left: 2em;
-				font-size: 1.2em;
-			}
-		}
-	}
+@media (min-width: 800px) {
+  body {
+    background-color: rgb(255, 167, 255);
+  }
+  .navContainer {
+    .navIcon {
+      display: none;
+    }
+    .mainLogo {
+      max-width: 10em;
+    }
+    .navLinks {
+      display: inline-block !important;
+      position: initial;
+      flex: auto;
+      width: initial;
+      height: initial;
+      z-index: initial;
+      background-color: #ffffff;
+      ul {
+        li {
+          display: inline-block;
+          a {
+            display: inline-block;
+            background-color: #fff;
+            padding: 0.4em;
+            text-decoration: none;
+            &:hover {
+              background-color: rgb(66, 94, 255);
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.main-container {
+  padding: 5em 1em 1em 1em;
 }
 
 .detailContainer {
-	padding: 1.5em;
-	.imageContainer {
-		margin-left: 5em;
-		img {
-			width: 100%;
-			max-width: 4em;
-		}
-	}
-	.detail {
-		padding: 1em 2em;
-		ul {
-			list-style: none;
-			margin: 0;
-			padding: 0.6em;
-			background-color: #fff;
-			li {
-				display: flex;
-				color: rgb(71, 71, 71);
-				text-align: center;
-				span {
-					background-color: rgb(226, 226, 226);
-					flex: 50%;
-					margin-bottom: 2px;
-					padding: 0.2em 0;
-					font-size: 1em;
-				}
-			}
-		}
-	}
+  padding: 1.5em;
+  .imageContainer {
+    margin-left: 5em;
+    img {
+      width: 100%;
+      max-width: 4em;
+    }
+  }
+  .detail {
+    padding: 1em 2em;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0.6em;
+      background-color: #fff;
+      li {
+        display: flex;
+        color: rgb(71, 71, 71);
+        text-align: center;
+        span {
+          background-color: rgb(226, 226, 226);
+          flex: 50%;
+          margin-bottom: 2px;
+          padding: 0.2em 0;
+          font-size: 1em;
+        }
+      }
+    }
+  }
 }
 
 .allRoomContainer,
 .homeContainer {
-	a {
-		text-decoration: none;
-		> div {
-			&:hover {
-				box-shadow: 0 0 10px rgb(133, 133, 133);
-			}
-			.features {
-				li {
-					font-size: 0.8em;
-				}
-			}
-			img {
-				max-width: 10em;
-				width: 100%;
-			}
-		}
-	}
+  a {
+    text-decoration: none;
+    > div {
+      &:hover {
+        box-shadow: 0 0 10px rgb(133, 133, 133);
+      }
+      .features {
+        li {
+          font-size: 0.8em;
+        }
+      }
+      img {
+        max-width: 10em;
+        width: 100%;
+      }
+    }
+  }
 }

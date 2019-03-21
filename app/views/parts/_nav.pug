@@ -1,17 +1,35 @@
-div.navContainer.ml-2.mt-2
-	nav
-		ul.row.list-unstyled
-			li.mr-1
-				a.btn.btn-primary.btn-sm(href="/") Home
-			li.mr-1
-				a.btn.btn-primary.btn-sm(href="/user/dashboard") Dashboard
-			li.mr-1
-				a.btn.btn-primary.btn-sm(href="/room/new") Add New Room
-			li.mr-1
-				a.btn.btn-primary.btn-sm(href="/room/all") Show All Rooms
+nav.navContainer
+	div.navIcon
+		<i class="material-icons md-36 navOperIcon">menu</i>	
+	div.mainLogo
+		img(src="/images/logo.png", alt="logo")
+	div.navLinks.d-none
+		ul
+			li
+				a(href="/") Home 
+			li
+				a(href="/user/dashboard") Dashboard
+			li
+				a(href="/room/new") Add Room
+			li
+				a(href="/room/all") Rooms
 			if user && user.userid === 'admin'
-				li.mr-1
-					a.btn.btn-primary.btn-sm(href="/user/all") All Users
+				li
+					a(href="/user/all") All Users
 			if title === "Dashboard"
-				li.mr-1
-					a.btn.btn-primary.btn-sm(href="/user/edit") Edit Detail
+				li
+					a(href="/user/edit") Edit Detail
+	div.userAction
+		ul
+			if user
+				li
+					img.userAvtar.mr-2(src="/user/"+user.userid+"/photo" alt="Photo")
+				li
+					a.btn.btn-outline-primary.btn-sm(href="/user/logout") Logout
+			else
+				if title !== 'Login'
+					li
+						a.btn.btn-outline-primary.btn-sm.mr-2(href="/user/login") Login
+				if title !== "Sign Up"
+					li
+						a.btn.btn-outline-primary.btn-sm(href="/user/signup") Signup

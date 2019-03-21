@@ -2,7 +2,6 @@ extends ./parts/_layout.pug
 
 block content
 	div.homeContainer
-		h4.text-center.text-muted Home
 		div.row
 			each room in rooms
 				a(href="/room/"+ room._id).col-10.mx-auto.my-2

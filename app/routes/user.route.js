@@ -128,7 +128,6 @@ router.get("/:id/photo", ensureAuthenticated, (req, res) => {
 				res.send(result[0].photo.image)
 			} else {
 				let a = result[0].name[0].toUpperCase()
-				console.log(a)
 				res.contentType("image/png")
 				let defaultAvatar = fs.readFileSync(`app/defaultAvatar/${a}.png`)
 				res.send(defaultAvatar)

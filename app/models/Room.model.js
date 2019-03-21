@@ -1,6 +1,5 @@
 const mongoose = require("mongoose")
 
-// Room Model
 const roomSchema = new mongoose.Schema({
 	location: {
 		type: String,

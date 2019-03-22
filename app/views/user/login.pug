@@ -1,10 +1,10 @@
 extends ./../parts/_layout.pug
 
 block content
-	div.loginContainer.p-3
-		h4.text-center.text-muted Login Form
+	div.loginContainer.p-3.bg-white.rounded.m-4.mx-md-auto
+		h4.text-center.text-muted.mb-4.mt-3 Login
 		div.row
-			form(action='/user/auth' method='post').col-9.col-md-6.col-xl-4.mx-auto
+			form(action='/user/auth' method='post').col-9.col-md-6.mx-auto
 				div.form-group
 					label(for="exampleInputEmail1") UserID
 					input.ml-3(type="text" name='userid' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter userid" required)
@@ -12,5 +12,5 @@ block content
 				div.form-group
 					label(for="exampleInputPassword1") Password
 					input.ml-3(type="password" name='password' class="form-control" id="exampleInputPassword1" placeholder="Password" required)
-				div.text-center
+				div.text-center.mb-3.mt-5
 					input.btn.btn-primary(type='submit' value='Submit')

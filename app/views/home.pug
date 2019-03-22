@@ -4,15 +4,16 @@ block content
 	div.homeContainer
 		div.row
 			each room in rooms
-				a(href="/room/"+ room._id).col-10.mx-auto.my-2
-					div.bg-white.px-4.py-2.rounded.row
-						.col-4
+				a(href="/room/"+ room._id).col-11.mx-auto.my-2
+					div.bg-white.row
+						.col-4.p-0
 							img.img-fluid(src="/room/"+room._id+"/photo", alt="Image")
-						.col-8
-							h4.text-dark Location : #{room.location}
-							p.text-muted.m-0 Price : #{room.price}
-							p.text-muted.m-0 No. of People can live : #{room.persons}
-							div Features :
-								ul.list-inline.m-0.features.ml-4.pb-2
+						.col-8.py-2.row
+							div.col-12
+								h4 #{room.location}
+							div.col-12.facilities Facilities :
+								ul.list-inline.m-0.ml-2.d-inline
 									each feature in room.features
-										li.list-inline-item.bg-primary.text-white.p-1.rounded #{feature.toUpperCase()}
+										li.list-inline-item.text-capitalize #{feature}
+							div.col-12.infoContainer
+								p.m-0 Price : #{room.price} / #{room.persons} Person

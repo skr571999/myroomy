@@ -1,10 +1,10 @@
 extends ./../parts/_layout.pug
 
 block content
-	div.signupContainer.p-3
-		h4.text-muted.text-center Add new User
+	div.signupContainer.p-3.bg-white.rounded.m-4.mx-md-auto
+		h4.text-muted.text-center.mb-4.mt-3 Signup
 		div.row
-			form(action='/user/add' method='post' enctype="multipart/form-data").col-9.col-sm-6.col-xl-4.mx-auto
+			form(action='/user/add' method='post' enctype="multipart/form-data").col-9.col-md-8.mx-auto
 				div.form-group
 					label(for="userID") UserID
 					input.ml-3(type="text" name='userid' value=userid?userid:'' class="form-control" id="userID" aria-describedby="emailHelp" placeholder="Enter userid" required)
@@ -42,5 +42,5 @@ block content
 				div.form-group
 					label(for="password1") Password
 					input.ml-3(type="password" name='password'  value=password?password:'' class="form-control" id="password1" placeholder="Password" required)
-				div.row.justify-content-around.mt-4
+				div.row.justify-content-around.mt-5.mb-3
 					input.btn.btn-primary(type='submit' value='Submit')

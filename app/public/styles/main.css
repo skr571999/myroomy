@@ -1,7 +1,16 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  background-color: #f7f7f7;
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  -webkit-clip-path: polygon(100% 0, 100% 38%, 45% 100%, 0 100%, 0 0);
+  clip-path: polygon(100% 0, 100% 38%, 45% 100%, 0 100%, 0 0);
+  background-color: #5280ffd8;
+  position: fixed;
+  z-index: -1;
 }
 
 .navContainer {
@@ -44,12 +53,15 @@ body {
 }
 .navContainer .navLinks {
   position: absolute;
-  width: 10em;
-  height: 100em;
+  width: 100%;
+  height: 100vh;
   top: 3.2em;
   left: 0em;
   z-index: 4;
-  background-color: #a7a7a7;
+  background-color: #5280ffec;
+}
+.navContainer .navLinks ul {
+  margin-top: 3em;
 }
 .navContainer .navLinks ul li {
   display: block;
@@ -57,15 +69,19 @@ body {
   margin: 3px;
 }
 .navContainer .navLinks ul li a {
-  display: block;
-  background-color: #fff;
-  padding: 0.8em;
-  margin-bottom: 3px;
+  display: inline-block;
+  padding: 0.25em;
+  font-size: 1.1rem;
+  margin: 0.25em auto;
+  width: 12em;
+  border-bottom: 1px solid white;
   text-decoration: none;
+  color: white;
 }
 .navContainer .navLinks ul li a:hover {
-  background-color: #425eff;
-  color: white;
+  transition: 0.2s ease-out;
+  background-color: white;
+  color: #5280ffec;
 }
 .navContainer .userAction img.userAvtar {
   border: 2px solid #444444;
@@ -95,17 +111,24 @@ body {
     z-index: initial;
     background-color: #ffffff;
   }
+  .navContainer .navLinks ul {
+    margin: 0;
+  }
   .navContainer .navLinks ul li {
     display: inline-block;
+    margin: 0;
   }
   .navContainer .navLinks ul li a {
-    display: inline-block;
     background-color: #fff;
-    padding: 0.4em;
+    padding: 0.1em 0.3em;
+    margin: 0 0.3em;
     text-decoration: none;
+    color: #5280ff;
+    width: initial;
   }
   .navContainer .navLinks ul li a:hover {
-    background-color: #425eff;
+    background-color: #5280ffec;
+    border-radius: 3px;
     color: white;
   }
 }
@@ -149,16 +172,51 @@ body {
 .homeContainer a {
   text-decoration: none;
 }
+.allRoomContainer a > div,
+.homeContainer a > div {
+  height: 9em;
+  transition: 0.1s ease-in;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.384);
+}
 .allRoomContainer a > div:hover,
 .homeContainer a > div:hover {
-  box-shadow: 0 0 10px #858585;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
-.allRoomContainer a > div .features li,
-.homeContainer a > div .features li {
-  font-size: 0.8em;
+.allRoomContainer a > div h4,
+.homeContainer a > div h4 {
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+  color: #5280ff;
+}
+.allRoomContainer a > div .facilities,
+.homeContainer a > div .facilities {
+  color: #474747;
+  font-weight: bold;
+}
+.allRoomContainer a > div .facilities ul li,
+.homeContainer a > div .facilities ul li {
+  font-weight: 500;
+  font-size: 0.9em;
+}
+.allRoomContainer a > div .infoContainer,
+.homeContainer a > div .infoContainer {
+  color: red;
 }
 .allRoomContainer a > div img,
 .homeContainer a > div img {
-  max-width: 10em;
+  margin: 0.15em;
   width: 100%;
+  height: 8.7em;
+  object-fit: cover;
+}
+
+.loginContainer,
+.signupContainer {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.589);
+  max-width: 40em;
+}
+
+.roomContainer {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.589);
+  max-width: 50em;
 }

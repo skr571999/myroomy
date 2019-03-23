@@ -9,7 +9,7 @@ block content
 				h3.text-muted #{room.location}
 				- let status = room.status === true?'Available':'Not Available'
 				p.m-0 Status : #{status}
-				div Facilities :
+				div Facilities:
 					ul
 						each feature in room.features
 							li.text-capitalize #{feature}

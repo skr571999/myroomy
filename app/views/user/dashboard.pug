@@ -2,8 +2,8 @@ extends ./../parts/_layout.pug
 
 block content
 	div.dashboard
-		div.detailContainer
-			h3.text-primary User Detail
+		div.detailContainer.bg-white
+			h4.text-primary User Detail
 			div.imageContainer
 				img(src="/user/"+user.userid+'/photo', alt="Photo")
 			div.detail
@@ -26,3 +26,5 @@ block content
 					li
 						span Addhar Number
 						span #{user.addharNumber}
+			.editLink
+				a(href="/room/edit").btn.btn-outline-primary.btn-sm Edit Detail

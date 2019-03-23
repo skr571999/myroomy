@@ -1,0 +1,90 @@
+.navContainer {
+  position: fixed;
+  width: 100%;
+  height: 12vw;
+  z-index: 5;
+  box-shadow: 0 0 5px rgb(110, 110, 110);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5vw;
+  div {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        display: inline-block;
+      }
+    }
+  }
+  .navIcon {
+    cursor: pointer;
+    padding: 0.6vw;
+    display: flex;
+    align-items: center;
+    border-radius: 0.2vw;
+    background-color: #ffffff;
+    i {
+      font-size: 7.5vw;
+    }
+  }
+  .mainLogo {
+    margin-left: 3.5vw;
+    flex: auto;
+    img {
+      max-width: 7em;
+      max-height: 9vw;
+    }
+  }
+  .navLinks {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 12vw;
+    left: 0em;
+    z-index: 4;
+    background-color: #5280ffec;
+    ul {
+      margin-top: 8vw;
+      li {
+        display: block;
+        text-align: center;
+        margin: 3px;
+        a {
+          display: inline-block;
+          padding: 2vw;
+          font-size: 3.8vw;
+          margin: 1.5vw auto;
+          width: 40vw;
+          border-bottom: 1px solid white;
+          text-decoration: none;
+          color: white;
+          &:hover {
+            transition: 0.2s ease-out;
+            background-color: rgb(255, 255, 255);
+            color: #5280ffec;
+          }
+        }
+      }
+    }
+  }
+  .userAction {
+    img.userAvtar {
+      box-shadow: 0 0 2px 1px black;
+      display: inline-block;
+      height: 8vw;
+      width: 8vw;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    ul {
+      li {
+        a {
+          font-size: 3.4vw;
+          padding: 1vw 2vw;
+        }
+      }
+    }
+  }
+}

@@ -1,10 +1,10 @@
 extends ./../parts/_layout.pug
 
 block content
-	div.signupContainer.p-3.bg-white.rounded.m-4.mx-md-auto
+	div.signupContainer.p-3.bg-white.rounded.m-3.mx-md-auto
 		h4.text-muted.text-center.mb-4.mt-3 Signup
 		div.row
-			form(action='/user/add' method='post' enctype="multipart/form-data").col-9.col-md-8.mx-auto
+			form(action='/user/add' method='post' enctype="multipart/form-data").col-10.col-md-8.mx-auto.pl-0
 				div.form-group
 					label(for="userID") UserID
 					input.ml-3(type="text" name='userid' value=userid?userid:'' class="form-control" id="userID" aria-describedby="emailHelp" placeholder="Enter userid" required)

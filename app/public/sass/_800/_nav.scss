@@ -1,4 +1,5 @@
 .navContainer {
+  height: 4em;
   .navIcon {
     display: none;
   }
@@ -25,11 +26,22 @@
           text-decoration: none;
           color: #5280ff;
           width: initial;
+          font-size: 1.2em;
           &:hover {
             background-color: #5280ffec;
             border-radius: 3px;
             color: white;
           }
+        }
+      }
+    }
+  }
+  .userAction {
+    ul {
+      li {
+        a {
+          font-size: 1em;
+          padding: 0.3em 0.6em;
         }
       }
     }

@@ -218,7 +218,10 @@ body .mainContainer {
   max-width: 50em;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 600px) {
+  .navContainer {
+    height: 4em;
+  }
   .navContainer .navIcon {
     display: none;
   }
@@ -248,10 +251,15 @@ body .mainContainer {
     text-decoration: none;
     color: #5280ff;
     width: initial;
+    font-size: 1.2em;
   }
   .navContainer .navLinks ul li a:hover {
     background-color: #5280ffec;
     border-radius: 3px;
     color: white;
+  }
+  .navContainer .userAction ul li a {
+    font-size: 1em;
+    padding: 0.3em 0.6em;
   }
 }

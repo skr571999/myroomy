@@ -1,10 +1,11 @@
-@import "./mobile/body";
-@import "./mobile/nav";
-@import "./mobile/dashboard";
-@import "./mobile/homeContainer";
-@import "./mobile/other";
-@media (min-width: 450px) {}
+// define below the 500px
+@import "./_450/450";
 
+// define for the 800px
+@media (min-width: 600px) {
+  @import "./_800/_nav";
+}
+
+// define for the next breakpoint
 @media (min-width: 800px) {
-  @import "./tablet/_nav";
 }

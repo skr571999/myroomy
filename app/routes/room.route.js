@@ -7,6 +7,7 @@ let upload = multer({ dest: "app/uploads/" });
 
 const { ensureAuthenticated } = require("../../config/auth");
 const Room = require("../models/Room.model");
+const SendMail = require("../controllers/SendMail");
 
 router.get("/new", ensureAuthenticated, (req, res) => {
   if (req.user.userid === "admin") {
@@ -115,9 +116,18 @@ router.get("/:id/photo", (req, res) => {
     });
 });
 
-router.get("/book", ensureAuthenticated, (req, res) => {
-  req.flash("success", "Room Booked successfully");
-  res.redirect("/user/dashboard");
+router.get("/book/:id", ensureAuthenticated, (req, res) => {
+  // console.log(req.user);
+  // SendMail(req.user.email, "");
+  SendMail.book(req.params.id, req.user.email)
+    .then(result => {
+      console.log("Book Email sended");
+      req.flash("success", "Room Booked successfully check your email");
+      res.redirect("/room/" + req.params.id);
+    })
+    .catch(err => {
+      console.log("Book email Error: ", err);
+    });
 });
 
 router.get("/:id/edit", ensureAuthenticated, (req, res) => {
@@ -138,32 +148,21 @@ router.post(
   ensureAuthenticated,
   upload.array("photos", 8),
   (req, res) => {
-    console.log(req.params);
-    console.log(req.body);
-
     const { location, status, features, persons, price } = req.body;
-    console.log(location);
-    console.log(status !== "" ? true : false);
-    console.log(features);
-    console.log(persons);
-
-    Room.updateOne(
-      { _id: req.param.id },
-      {
-        location: location,
-        status: status !== "" ? true : false,
-        features: features,
-        persons: persons,
-        price: price
-      }
-    )
+    Room.findByIdAndUpdate(req.params.id, {
+      location: location,
+      status: status === undefined ? false : true,
+      features: features,
+      persons: persons,
+      price: price
+    })
       .then(result => {
-        console.log(result);
-        res.send("Updated room request");
+        req.flash("success", "Room Updated");
+        res.redirect("/room/" + result._id);
       })
       .catch(err => {
-        console.log("Update Error : ", err);
-        res.send(err);
+        console.log(err);
+        res.redirect("/");
       });
   }
 );

@@ -24,7 +24,8 @@ block content
 						span Address
 						span #{user.address}
 					li
-						span Addhar Number
-						span #{user.addharNumber}
+						- let status =  user.verified ===true?'Verified':'Not Verified'
+						span Status
+						span #{status}
 			.editLink
 				a(href="/user/edit").btn.btn-outline-primary.btn-sm Edit Detail

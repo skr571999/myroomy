@@ -7,6 +7,7 @@ let upload = multer({ dest: "app/uploads/" });
 
 const { ensureAuthenticated } = require("../../config/auth");
 const Room = require("../models/Room.model");
+const User = require("../models/User.model");
 const SendMail = require("../controllers/SendMail");
 
 router.get("/new", ensureAuthenticated, (req, res) => {
@@ -117,16 +118,27 @@ router.get("/:id/photo", (req, res) => {
 });
 
 router.get("/book/:id", ensureAuthenticated, (req, res) => {
-  // console.log(req.user);
-  // SendMail(req.user.email, "");
-  SendMail.book(req.params.id, req.user.email)
+  User.findById(req.user.id, { verified: 1, _id: 1, userid: 1 })
     .then(result => {
-      console.log("Book Email sended");
-      req.flash("success", "Room Booked successfully check your email");
-      res.redirect("/room/" + req.params.id);
+      if (result.verified === true) {
+        SendMail.book(req.params.id, req.user.email)
+          .then(result => {
+            console.log("Book Email sended");
+            req.flash("success", "Room Booked successfully, check your email");
+            res.redirect("/room/" + req.params.id);
+          })
+          .catch(err => {
+            console.log("Book email Error: ", err);
+          });
+      } else {
+        console.log("User not verified");
+        req.flash("warning", "Account Not verified, So cannot book");
+        res.redirect("/user/dashboard");
+      }
     })
     .catch(err => {
-      console.log("Book email Error: ", err);
+      console.log("Book error :", err);
+      res.send("Error In the request");
     });
 });
 

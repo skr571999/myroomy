@@ -28,7 +28,6 @@ router.get("/edit", ensureAuthenticated, user.edit);
 router.post("/editted", ensureAuthenticated, user.editted);
 
 router.get("/verify/:email/:token", (req, res) => {
-  // console.log(req.params);
   User.findOne({ email: req.params.email })
     .then(result => {
       if (result.token === req.params.token) {
@@ -42,10 +41,12 @@ router.get("/verify/:email/:token", (req, res) => {
           }
         )
           .then(result1 => {
-            console.log(result1.email);
-            // res.send("Verified Successfully");
-            req.flash("success", "Verified Successfully");
-            res.redirect("user/login");
+            console.log(result1.email + " verified");
+            res.send(
+              "Verified Successfully, You can login now at<a href='http://localhost:3000/user/login'>Login</a>"
+            );
+            // req.flash("success", "Verified Successfully");
+            // res.redirect("user/login");
           })
           .catch(err => {
             console.log(err);

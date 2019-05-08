@@ -11,8 +11,8 @@ nav.navContainer
 			if user
 				li
 					a(href="/user/dashboard") Dashboard
-				li
-					a(href="/room/all") Rooms
+				//- li
+				//- 	a(href="/room/all") Rooms
 			if user && user.userid === 'admin'
 				li
 					a(href="/room/new") Add Room

@@ -8,7 +8,7 @@ const path = require("path");
 
 const app = express();
 const { PORT } = require("./config/config");
-const dbURL = require("./config/db.config").url;
+const dbURL = require("./config/db.config").urlCloud;
 
 // Disable to use useFindAndModify globally
 mongoose.set("useFindAndModify", false);

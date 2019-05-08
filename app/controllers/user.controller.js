@@ -101,9 +101,11 @@ module.exports.add = (req, res) => {
                     .catch(err => {
                       console.log("Verify Email Error : ", err);
                     });
-                  res.send(
-                    "Verified Successfully, You can login now at<a href='http://localhost:3000/user/login'>Login</a>"
+                  req.flash(
+                    "success",
+                    "Account maded successfully, Check your email to Verify"
                   );
+                  res.redirect("/user/login");
                 })
                 .catch(err => {
                   console.log("Signup Error :", err);

@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 const Room = require("../models/Room.model");
-// const pug = require("pug");
+const { Email_Id, Email_Pass } = require("../../config/config");
 
 module.exports = {
   verify: (email, token) => {
@@ -8,20 +8,20 @@ module.exports = {
       let transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-          user: "skrwebstart@gmail.com",
-          pass: "Ahenrajput10*"
+          user: Email_Id,
+          pass: Email_Pass
         }
       });
 
       const link = `http://localhost:3000/user/verify/${email}/${token}`;
 
       let mailOptions = {
-        from: "Sachin Kumar Rajput <myroomy.admin@gmail.com>",
+        from: "Admin myroomy <myroomy.admin@gmail.com>",
         to: email,
-        subject: "Website Testing",
-        text: "This is a testing Email",
+        subject: "Account Verify",
+        text: `Verify Account Link <a href='${link}>Verify</a>'`,
         html: `
-            <h1>Test Link</h1>
+            <h1>Verify Account Link </h1>
             <a href=${link}>Verify</a>
           `
       };
@@ -43,8 +43,8 @@ module.exports = {
       let transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-          user: "skrwebstart@gmail.com",
-          pass: "Ahenrajput10*"
+          user: Email_Id,
+          pass: Email_Pass
         }
       });
 

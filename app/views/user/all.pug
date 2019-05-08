@@ -1,8 +1,16 @@
 extends ./../parts/_layout.pug
 
 block content
-	h3.text-center.text-muted All User List
-	div
-		if users
-			each user1 in users
-				div #{user1}
+	div.bg-white.py-3.m-1
+		h3.text-center.text-muted.my-4 All User List
+		div.container-fluid
+			if users
+				div.row.pb-2.text-center.bg-primary.text-white
+						span.col-2.m-1 UserId
+						span.col-4.m-1 Email
+						span.col-5.m-1 Address
+				each user1 in users
+					div.row.text-center.bg-primary
+						.col-2.p-1.mb-1.bg-white #{user1.userid}
+						.col-5.p-1.mb-1.bg-white #{user1.email}
+						.col-5.p-1.mb-1.bg-white #{user1.address}

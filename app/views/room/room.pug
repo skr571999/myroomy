@@ -1,19 +1,21 @@
 extends ./../parts/_layout.pug
 
 block content
-	div.roomContainer.p-3.bg-white.m-auto
-		div.row
-			div.col-6
-				img(src="/room/"+room._id+"/photo", alt="Photo").img-fluid
-			div.col-6
-				h3.text-muted #{room.location}
-				- let status = room.status === true?'Available':'Not Available'
-				p.m-0 Status : #{status}
-				div Facilities:
-					ul
-						each feature in room.features
-							li.text-capitalize #{feature}
-				div.row.justify-content-center
-					a(href="/room/book").btn.btn-primary.btn-sm Book Room
-				div.row.justify-content-center.m-4
-					a(href="/room/"+room._id+"/edit").btn.btn-primary.btn-sm Edit room Detail
+	div.p-2
+		div.roomContainer.p-1.bg-white.m-auto
+			div.row.m-2
+				div.col-6
+					img(src="/room/"+room._id+"/photo", alt="Photo").img-fluid
+				div.col-6.p-2
+					h3.text-muted #{room.location}
+					- let status = room.status === true?'Available':'Not Available'
+					p.m-0 Status : #{status}
+					div Facilities:
+						ul
+							each feature in room.features
+								li.text-capitalize #{feature}
+					div.row.justify-content-center
+						a(href="/room/book").btn.btn-primary.btn-sm Book Room
+					if user.userid == 'admin'
+						div.row.justify-content-center.m-4
+							a(href="/room/"+room._id+"/edit").btn.btn-primary.btn-sm Edit room Detail

@@ -1,11 +1,18 @@
-// define below the 500px
 @import "./_450/450";
 
-// define for the 800px
 @media (min-width: 600px) {
-  @import "./_800/_nav";
+  @import "./_600/_nav";
+  @import "./_600/dashboard";
+  @import "./_600/homeContainer";
+  body {
+    .mainContainer {
+      padding-top: 12vw;
+    }
+  }
+  .newRoomContainer {
+    margin: 1em auto;
+  }
 }
 
-// define for the next breakpoint
 @media (min-width: 800px) {
 }

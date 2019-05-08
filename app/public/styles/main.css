@@ -92,6 +92,8 @@ body .mainContainer {
   display: inline-block;
   height: 8vw;
   width: 8vw;
+  max-width: 2.5em;
+  max-height: 2.5em;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -107,6 +109,8 @@ body .mainContainer {
   border-radius: 4px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.671);
   padding: 1em 0.8em;
+  max-width: 50em;
+  margin: auto;
 }
 .dashboard .detailContainer h4 {
   text-align: center;
@@ -158,48 +162,39 @@ body .mainContainer {
   padding: 1vw 2vw;
 }
 
-.homeContainer .row,
 .allRoomContainer .row {
   margin: 0;
 }
-.homeContainer .row a,
 .allRoomContainer .row a {
   text-decoration: none;
 }
-.homeContainer .row a > div,
 .allRoomContainer .row a > div {
   height: calc(28vw);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.384);
 }
-.homeContainer .row a > div:hover,
 .allRoomContainer .row a > div:hover {
   transition: 0.1s ease-in;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.788);
 }
-.homeContainer .row a > div h4,
 .allRoomContainer .row a > div h4 {
   font-size: 3.5vw;
   margin-bottom: 4px;
   color: #5280ff;
 }
-.homeContainer .row a > div .facilities,
 .allRoomContainer .row a > div .facilities {
   color: #474747;
   font-weight: bold;
-  font-size: 3.4vw;
+  font-size: 3vw;
 }
-.homeContainer .row a > div .facilities ul li,
 .allRoomContainer .row a > div .facilities ul li {
   font-weight: 500;
   font-size: 3vw;
   margin-right: 1vw;
 }
-.homeContainer .row a > div .infoContainer,
 .allRoomContainer .row a > div .infoContainer {
   color: red;
-  font-size: 3.3vw;
+  font-size: 3vw;
 }
-.homeContainer .row a > div img,
 .allRoomContainer .row a > div img {
   margin: 0.5vw;
   width: 100%;
@@ -213,9 +208,24 @@ body .mainContainer {
   max-width: 40em;
 }
 
+.msgC {
+  max-width: 40em;
+  margin: auto;
+}
+
 .roomContainer {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.589);
   max-width: 50em;
+}
+
+.newRoomContainer {
+  max-width: 50em;
+  padding: 1em;
+  border-radius: 5px;
+  margin: 1em;
+}
+.newRoomContainer h4 {
+  margin: 1.5em 0;
 }
 
 @media (min-width: 600px) {
@@ -261,5 +271,68 @@ body .mainContainer {
   .navContainer .userAction ul li a {
     font-size: 1em;
     padding: 0.3em 0.6em;
+  }
+
+  .dashboard .detailContainer h4 {
+    margin: 0.5em 0;
+    font-size: 1.8em;
+  }
+  .dashboard .detailContainer .imageContainer {
+    margin-left: 5em;
+  }
+  .dashboard .detailContainer .imageContainer img {
+    max-width: 6em;
+  }
+  .dashboard .detailContainer .detail {
+    padding: 2em;
+  }
+  .dashboard .detailContainer .detail ul li span {
+    font-size: 1.1em;
+  }
+  .dashboard .detailContainer .editLink a {
+    font-size: 1.2em;
+    padding: 0.2em 0.4em;
+  }
+
+  .allRoomContainer {
+    max-width: 50em;
+    margin: auto;
+  }
+  .allRoomContainer .row {
+    margin: 0;
+  }
+  .allRoomContainer .row a {
+    text-decoration: none;
+  }
+  .allRoomContainer .row a > div {
+    height: calc(8em + 4vw);
+  }
+  .allRoomContainer .row a > div h4 {
+    font-size: 1.3em;
+    margin-top: 5px;
+  }
+  .allRoomContainer .row a > div .facilities {
+    font-size: 1.1em;
+  }
+  .allRoomContainer .row a > div .facilities ul li {
+    font-size: 1em;
+    margin-right: 0.1em;
+  }
+  .allRoomContainer .row a > div .infoContainer {
+    font-size: 1em;
+  }
+  .allRoomContainer .row a > div img {
+    margin: 0;
+    width: 100%;
+    height: calc(8em + 4vw);
+    object-fit: cover;
+  }
+
+  body .mainContainer {
+    padding-top: 12vw;
+  }
+
+  .newRoomContainer {
+    margin: 1em auto;
   }
 }

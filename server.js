@@ -49,7 +49,7 @@ app.use(express.static(path.join(__dirname + "/app/public")));
 app.get("/", (req, res) => {
   Room.find({})
     .then(result => {
-      res.render("home", {
+      res.render("room/all", {
         title: "Home | MyRoomy",
         rooms: result,
         user: req.user
@@ -57,6 +57,7 @@ app.get("/", (req, res) => {
     })
     .catch(err => {
       req.flash("error", "Error in the Request: " + err.name);
+      req.flash("warning", "Server Error Refresh the Page");
       res.render("home", {
         title: "Home | MyRoomy",
         rooms: ""

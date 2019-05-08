@@ -4,7 +4,22 @@
   max-width: 40em;
 }
 
+.msgC {
+  max-width: 40em;
+  margin: auto;
+}
+
 .roomContainer {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.589);
   max-width: 50em;
+}
+
+.newRoomContainer {
+  max-width: 50em;
+  padding: 1em;
+  border-radius: 5px;
+  margin: 1em;
+  h4 {
+    margin: 1.5em 0;
+  }
 }

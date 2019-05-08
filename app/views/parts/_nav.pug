@@ -8,13 +8,14 @@ nav.navContainer
 		ul
 			li
 				a(href="/") Home 
-			li
-				a(href="/user/dashboard") Dashboard
-			li
-				a(href="/room/new") Add Room
-			li
-				a(href="/room/all") Rooms
+			if user
+				li
+					a(href="/user/dashboard") Dashboard
+				li
+					a(href="/room/all") Rooms
 			if user && user.userid === 'admin'
+				li
+					a(href="/room/new") Add Room
 				li
 					a(href="/user/all") All Users
 	div.userAction

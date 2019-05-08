@@ -75,6 +75,8 @@
       display: inline-block;
       height: 8vw;
       width: 8vw;
+      max-width: 2.5em;
+      max-height: 2.5em;
       border-radius: 50%;
       object-fit: cover;
     }

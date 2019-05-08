@@ -1,18 +1,19 @@
 $height: calc(28vw);
 $primary-color: #5280ff;
 $secondary-color: #474747;
-.homeContainer,
+// .homeContainer,
 .allRoomContainer {
   .row {
     margin: 0;
     a {
       text-decoration: none;
-      >div {
+      > div {
         height: $height;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.384);
         &:hover {
           transition: 0.1s ease-in;
-          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.788);
+          // 0 6px 6px rgba(0, 0, 0, 0.23);
         }
         h4 {
           font-size: 3.5vw;
@@ -22,7 +23,7 @@ $secondary-color: #474747;
         .facilities {
           color: $secondary-color;
           font-weight: bold;
-          font-size: 3.4vw;
+          font-size: 3vw;
           ul {
             li {
               font-weight: 500;
@@ -33,7 +34,7 @@ $secondary-color: #474747;
         }
         .infoContainer {
           color: red;
-          font-size: 3.3vw;
+          font-size: 3vw;
         }
         img {
           margin: 0.5vw;

@@ -1,0 +1,38 @@
+$height: calc(8em + 4vw);
+$primary-color: #5280ff;
+$secondary-color: #474747;
+.allRoomContainer {
+  max-width: 50em;
+  margin: auto;
+  .row {
+    margin: 0;
+    a {
+      text-decoration: none;
+      > div {
+        height: $height;
+        h4 {
+          font-size: 1.3em;
+          margin-top: 5px;
+        }
+        .facilities {
+          font-size: 1.1em;
+          ul {
+            li {
+              font-size: 1em;
+              margin-right: 0.1em;
+            }
+          }
+        }
+        .infoContainer {
+          font-size: 1em;
+        }
+        img {
+          margin: 0;
+          width: 100%;
+          height: calc(8em + 4vw);
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

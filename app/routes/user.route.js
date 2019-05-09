@@ -43,7 +43,7 @@ router.get("/verify/:email/:token", (req, res) => {
           .then(result1 => {
             console.log(result1.email + " verified");
             res.send(
-              "Verified Successfully, You can login now at<a href='http://localhost:3000/user/login'>Login</a>"
+              "Verified Successfully, You can login now at<a href='https://myroomy.herokuapp.comm/user/login'>Login</a>"
             );
             // req.flash("success", "Verified Successfully");
             // res.redirect("user/login");

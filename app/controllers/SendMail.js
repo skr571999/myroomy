@@ -49,9 +49,9 @@ module.exports = {
       });
 
       let mailOptions = {
-        from: "Sachin Kumar Rajput <myroomy.admin@gmail.com>",
+        from: "Admin myroomy <myroomy.admin@gmail.com>",
         to: email,
-        subject: "Website Testing",
+        subject: "Room Booked",
         text: "This is a testing Email",
         html: `
             <h1>Book Successfull</h1>

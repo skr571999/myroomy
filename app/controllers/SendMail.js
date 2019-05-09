@@ -3,7 +3,7 @@ const Room = require("../models/Room.model");
 const { Email_Id, Email_Pass } = require("../../config/config");
 
 module.exports = {
-  verify: (email, token) => {
+  verify: (email, token, link) => {
     return new Promise((resolve, reject) => {
       let transporter = nodemailer.createTransport({
         service: "gmail",
@@ -13,16 +13,16 @@ module.exports = {
         }
       });
 
-      const link = `http://localhost:3000/user/verify/${email}/${token}`;
+      let newlink = `${link}/user/verify/${email}/${token}`;
 
       let mailOptions = {
         from: "Admin myroomy <myroomy.admin@gmail.com>",
         to: email,
         subject: "Account Verify",
-        text: `Verify Account Link <a href='${link}>Verify</a>'`,
+        text: `Verify Account Link <a href='${newlink}>Verify</a>'`,
         html: `
             <h1>Verify Account Link </h1>
-            <a href=${link}>Verify</a>
+            <a href=${newlink}>Verify</a>
           `
       };
 

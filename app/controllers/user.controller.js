@@ -18,7 +18,7 @@ module.exports.signup = (req, res) => {
 };
 
 module.exports.add = (req, res) => {
-  const token = cryptoRandomString(16);
+  const token = cryptoRandomString({ length: 16 });
   const {
     userid,
     email,
@@ -94,7 +94,9 @@ module.exports.add = (req, res) => {
               newUser
                 .save()
                 .then(result => {
-                  SendMail.verify(email, token)
+                  let link = `${req.protocol}://${req.get("host")}`;
+                  console.log("my libk " + link);
+                  SendMail.verify(email, token, link)
                     .then(result2 => {
                       console.log("Email Sended Success");
                     })

@@ -8,14 +8,14 @@ const path = require("path");
 
 const app = express();
 const { PORT } = require("./config/config");
-const dbURL = require("./config/db.config").urlCloud;
+const dbURL = require("./config/db.config").url;
 
 // Disable to use useFindAndModify globally
 mongoose.set("useFindAndModify", false);
 mongoose
   .connect(dbURL, { useNewUrlParser: true })
   .then(() => console.log("DB Connected"))
-  .catch(err => {
+  .catch((err) => {
     console.log(`DB unconnected\nError name: ${err.name}\nExiting...`);
     process.exit();
   });
@@ -27,7 +27,7 @@ app.use(
   session({
     secret: "secret",
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
   })
 );
 app.use(flash());
@@ -48,19 +48,19 @@ const Room = require("./app/models/Room.model");
 app.use(express.static(path.join(__dirname + "/app/public")));
 app.get("/", (req, res) => {
   Room.find({})
-    .then(result => {
+    .then((result) => {
       res.render("room/all", {
         title: "Home | MyRoomy",
         rooms: result,
-        user: req.user
+        user: req.user,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       req.flash("error", "Error in the Request: " + err.name);
       req.flash("warning", "Server Error Refresh the Page");
       res.render("home", {
         title: "Home | MyRoomy",
-        rooms: ""
+        rooms: "",
       });
     });
 });

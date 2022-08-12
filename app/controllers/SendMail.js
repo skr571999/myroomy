@@ -1,6 +1,7 @@
 const nodemailer = require("nodemailer");
 const Room = require("../models/Room.model");
-const { Email_Id, Email_Pass } = require("../../config/config");
+const Email_Id = process.env.Email_Id;
+const Email_Pass = process.env.Email_Pass;
 
 module.exports = {
   verify: (email, token, link) => {
@@ -9,8 +10,8 @@ module.exports = {
         service: "gmail",
         auth: {
           user: Email_Id,
-          pass: Email_Pass
-        }
+          pass: Email_Pass,
+        },
       });
 
       let newlink = `${link}/user/verify/${email}/${token}`;
@@ -23,7 +24,7 @@ module.exports = {
         html: `
             <h1>Verify Account Link </h1>
             <a href=${newlink}>Verify</a>
-          `
+          `,
       };
 
       transporter.sendMail(mailOptions, (error, info) => {
@@ -44,8 +45,8 @@ module.exports = {
         service: "gmail",
         auth: {
           user: Email_Id,
-          pass: Email_Pass
-        }
+          pass: Email_Pass,
+        },
       });
 
       let mailOptions = {
@@ -56,7 +57,7 @@ module.exports = {
         html: `
             <h1>Book Successfull</h1>
             <p>For enquery Contact: 123456</p>
-          `
+          `,
       };
 
       transporter.sendMail(mailOptions, (error, info) => {
@@ -69,10 +70,10 @@ module.exports = {
             { _id: id },
             {
               $set: {
-                status: false
-              }
+                status: false,
+              },
             }
-          ).then(result => {
+          ).then((result) => {
             resolve(result);
             console.log("Update after email", result);
           });
@@ -80,5 +81,5 @@ module.exports = {
         }
       });
     });
-  }
+  },
 };

@@ -1,3 +1,6 @@
+const dotenv = require("dotenv");
+dotenv.config();
+
 const express = require("express");
 const session = require("express-session");
 const flash = require("express-flash");
@@ -7,13 +10,15 @@ const mongoose = require("mongoose");
 const path = require("path");
 
 const app = express();
-const { PORT } = require("./config/config");
-const dbURL = require("./config/db.config").url;
+const PORT = process.env.PORT;
 
 // Disable to use useFindAndModify globally
 mongoose.set("useFindAndModify", false);
 mongoose
-  .connect(dbURL, { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("DB Connected"))
   .catch((err) => {
     console.log(`DB unconnected\nError name: ${err.name}\nExiting...`);

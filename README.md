@@ -2,12 +2,16 @@
 
 Simple web app for taking rooms for rent
 
-## Usage
+## Notes
 
 ```
-$ mongod
-$ npm run style
-$ npm start
+mkdir -p docker-data/mongodb_data
+
+docker-compose up -d
+
+npm run style
+
+npm start
 ```
 
 ## Requirements

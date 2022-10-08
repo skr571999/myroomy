@@ -1,5 +1,5 @@
 const nodemailer = require("nodemailer");
-const Room = require("../models/Room.model");
+const Room = require("../apps/room/Room.model");
 const Email_Id = process.env.Email_Id;
 const Email_Pass = process.env.Email_Pass;
 

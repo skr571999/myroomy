@@ -1,10 +1,10 @@
 const passport = require("passport");
-const User = require("../models/User.model");
 const fs = require("fs");
 const bcrypt = require("bcryptjs");
 const cryptoRandomString = require("crypto-random-string");
 
-const SendMail = require("./SendMail");
+const SendMail = require("./../../utils/SendMail");
+const User = require("./User.model");
 
 module.exports.signup = (req, res) => {
   if (!req.isAuthenticated()) {

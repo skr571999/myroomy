@@ -7,8 +7,8 @@ let upload = multer({ dest: 'app/uploads/' });
 
 const { ensureAuthenticated } = require('../../utils/auth');
 const SendMail = require('../../utils/SendMail');
-const Room = require('./Room.model');
-const User = require('../user/User.model');
+const RoomModel = require('./Room.model');
+const UserModel = require('../user/User.model');
 
 router.get('/new', ensureAuthenticated, (req, res) => {
     if (req.user.userid === 'admin') {
@@ -17,7 +17,8 @@ router.get('/new', ensureAuthenticated, (req, res) => {
             user: req.user,
         });
     } else {
-        res.send('Access Denied');
+        req.flash('success', 'Access Denied');
+        res.redirect('/');
     }
 });
 
@@ -40,7 +41,7 @@ router.post('/add', ensureAuthenticated, upload.array('photos', 4), (req, res) =
     const { location, features, persons, price } = req.body;
     let userid = req.user.userid;
 
-    const newRoom = new Room({
+    const newRoom = new RoomModel({
         location,
         features,
         persons,
@@ -64,7 +65,7 @@ router.post('/add', ensureAuthenticated, upload.array('photos', 4), (req, res) =
 
 router.get('/all', (req, res) => {
     if (req.isAuthenticated()) {
-        Room.find({}).then((result) => {
+        RoomModel.find({}).then((result) => {
             res.render('room/all', {
                 title: 'All Room',
                 rooms: result,
@@ -73,19 +74,11 @@ router.get('/all', (req, res) => {
         });
     } else {
         res.redirect('/');
-        // Room.find({}, { status: 0 }).then(result => {
-        //   req.flash("warning", "To view complete information Login or SignUp");
-        //   res.render("room/all", {
-        //     title: "All Room",
-        //     rooms: result,
-        //     user: ""
-        //   });
-        // });
     }
 });
 
 router.get('/:id', ensureAuthenticated, (req, res) => {
-    Room.findOne({ _id: req.params.id })
+    RoomModel.findOne({ _id: req.params.id })
         .then((result) => {
             res.render('room/room', {
                 room: result,
@@ -99,7 +92,7 @@ router.get('/:id', ensureAuthenticated, (req, res) => {
 });
 
 router.get('/:id/photo', (req, res) => {
-    Room.findOne({ _id: req.params.id })
+    RoomModel.findOne({ _id: req.params.id })
         .then((result) => {
             res.contentType(result.photos[0].contentType);
             res.send(result.photos[0].image);
@@ -113,7 +106,7 @@ router.get('/:id/photo', (req, res) => {
 });
 
 router.get('/book/:id', ensureAuthenticated, (req, res) => {
-    User.findById(req.user.id, { verified: 1, _id: 1, userid: 1 })
+    UserModel.findById(req.user.id, { verified: 1, _id: 1, userid: 1 })
         .then((result) => {
             if (result.verified === true) {
                 SendMail.book(req.params.id, req.user.email)
@@ -139,7 +132,7 @@ router.get('/book/:id', ensureAuthenticated, (req, res) => {
 
 router.get('/:id/edit', ensureAuthenticated, (req, res) => {
     if (req.user.userid === 'admin') {
-        Room.findOne({ _id: req.params.id }).then((result) => {
+        RoomModel.findOne({ _id: req.params.id }).then((result) => {
             res.render('room/edit', {
                 user: req.user,
                 room: result,
@@ -152,7 +145,7 @@ router.get('/:id/edit', ensureAuthenticated, (req, res) => {
 
 router.post('/update/:id', ensureAuthenticated, upload.array('photos', 8), (req, res) => {
     const { location, status, features, persons, price } = req.body;
-    Room.findByIdAndUpdate(req.params.id, {
+    RoomModel.findByIdAndUpdate(req.params.id, {
         location: location,
         status: status === undefined ? false : true,
         features: features,

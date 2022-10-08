@@ -8,7 +8,7 @@ const { ensureAuthenticated } = require('../../utils/auth');
 const user = require('./user.service');
 const User = require('./User.model');
 
-const upload = multer({ dest: 'app/uploads/' });
+const upload = multer({ dest: 'uploads/' });
 
 router.get('/signup', user.signup);
 

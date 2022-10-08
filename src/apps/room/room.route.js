@@ -3,7 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const fs = require('fs');
 
-let upload = multer({ dest: 'app/uploads/' });
+let upload = multer({ dest: 'uploads/' });
 
 const { ensureAuthenticated } = require('../../utils/auth');
 const SendMail = require('../../utils/SendMail');

@@ -1,10 +1,10 @@
 {
-  "name": "myroomy",
+  "name": "roomy",
   "version": "1.0.0",
-  "description": "Room booking web app",
+  "description": "Room Listing website",
   "main": "server.js",
   "scripts": {
-    "style": "cd ./app/public && sass --watch ./sass:styles --no-source-map",
+    "style": "cd ./src/public && sass --watch ./sass:styles --no-source-map",
     "start": "nodemon src"
   },
   "keywords": [],
@@ -30,7 +30,7 @@
   "nodemonConfig": {
     "ignore": [
       "node_modules/**",
-      "app/public/scripts/*"
+      "src/public/*"
     ]
   },
   "devDependencies": {

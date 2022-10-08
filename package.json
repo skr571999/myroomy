@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "style": "cd ./app/public && sass --watch ./sass:styles --no-source-map",
-    "start": "nodemon server.js"
+    "start": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "",

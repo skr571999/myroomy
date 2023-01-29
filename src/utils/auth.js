@@ -4,6 +4,6 @@ module.exports = {
 			return next()
 		}
 		req.flash("error", "You need to Login first")
-		res.redirect("/user/login")
+		res.redirect("/login")
 	}
 }

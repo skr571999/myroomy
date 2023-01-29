@@ -2,9 +2,9 @@ extends ./../parts/_layout.pug
 
 block content
 	div.newRoomContainer.bg-white
-		h4.text-muted.text-center Edit Room Detail
+		h4.text-muted.text-center Update Room Detail
 		div.row
-			form(action="/room/update/"+ room._id method="post" enctype="multipart/form-data").col-9.col-sm-6.col-xl-4.mx-auto
+			form(method="post" enctype="multipart/form-data").col-9.col-sm-6.col-xl-4.mx-auto
 				div.form-group
 					label(for="location").font-weight-bold Location
 					textarea.ml-3(name='location' class="form-control" id="location" rows="3" placeholder="e.g. Bijnor" required) #{room.location}

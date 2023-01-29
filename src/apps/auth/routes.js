@@ -2,7 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
-const cryptoRandomString = require('crypto-random-string');
+const uuid = require('uuid');
 
 const { ensureAuthenticated } = require('../../utils/auth');
 const SendMail = require('../../utils/SendMail');
@@ -21,7 +21,7 @@ router
     })
     .post(upload.single('photo'), async (req, res) => {
         try {
-            const token = cryptoRandomString({ length: 16 });
+            const token = uuid.v4();
             const { userid, email, name, gender, mobileNumber, address, password } = req.body;
             let msgs = [];
             let photo = {};

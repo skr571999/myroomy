@@ -10,9 +10,7 @@ nav.navContainer
 				a(href="/") Home 
 			if user
 				li
-					a(href="/user/dashboard") Dashboard
-				//- li
-				//- 	a(href="/room/all") Rooms
+					a(href="/user") Profile
 			if user && user.userid === 'admin'
 				li
 					a(href="/room/new") Add Room
@@ -24,11 +22,11 @@ nav.navContainer
 				li
 					img.userAvtar.mr-2(src="/user/"+user.userid+"/photo" alt="Photo")
 				li
-					a.btn.btn-outline-primary.btn-sm(href="/user/logout") Logout
+					a.btn.btn-outline-primary.btn-sm(href="/logout") Logout
 			else
 				if title !== 'Login'
 					li
-						a.btn.btn-outline-primary.btn-sm.mr-2(href="/user/login") Login
+						a.btn.btn-outline-primary.btn-sm.mr-2(href="/login") Login
 				if title !== "Sign Up"
 					li
-						a.btn.btn-outline-primary.btn-sm(href="/user/signup") Signup
+						a.btn.btn-outline-primary.btn-sm(href="/signup") Signup

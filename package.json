@@ -2,30 +2,30 @@
   "name": "roomy",
   "version": "1.0.0",
   "description": "Room Listing website",
-  "main": "server.js",
+  "main": "src/index.js",
   "scripts": {
     "style": "cd ./src/public && sass --watch ./sass:styles --no-source-map",
-    "start": "nodemon src"
+    "start:dev": "nodemon src",
+    "start": "node src"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "engines": {
-    "node": "10.15.1"
+    "node": "19.5.0"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "crypto-random-string": "^3.0.0",
-    "dotenv": "^7.0.0",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "express-flash": "0.0.2",
     "express-session": "^1.15.6",
-    "mongoose": "^5.4.13",
-    "multer": "^1.4.1",
-    "nodemailer": "^6.1.1",
-    "passport": "^0.4.0",
+    "mongoose": "^6.9.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.1",
+    "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "pug": "^2.0.3"
+    "pug": "^3.0.2",
+    "uuid": "^9.0.0"
   },
   "nodemonConfig": {
     "ignore": [
@@ -35,6 +35,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.20",
-    "sass": "^1.17.4"
+    "sass": "^1.57.1"
   }
 }

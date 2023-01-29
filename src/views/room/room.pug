@@ -19,7 +19,7 @@ block content
 							a().disabled.btn.btn-primary.btn-sm Book
 					else 
 						div.row.justify-content-center
-							a(href="/room/book/"+room._id).btn.btn-primary.btn-sm Book Room
+							a(href="/room/"+room._id+"/book").btn.btn-primary.btn-sm Book Room
 					if user.userid == 'admin'
 						div.row.justify-content-center.m-4
-							a(href="/room/"+room._id+"/edit").btn.btn-primary.btn-sm Edit room Detail
+							a(href="/room/"+room._id+"/update").btn.btn-primary.btn-sm Edit room Detail

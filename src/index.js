@@ -1,26 +1,19 @@
-const dotenv = require('dotenv');
-dotenv.config();
 const mongoose = require('mongoose');
 
 const { app } = require('./server');
 
-const PORT = process.env.PORT;
-
-const run = async () => {
-    // Disable to use useFindAndModify globally
-    mongoose.set('useFindAndModify', false);
-    mongoose
-        .connect(process.env.MONGODB_URL, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        })
-        .then(() => console.log('DB Connected'))
-        .catch((err) => {
-            console.log(`DB not Connected\nError name: ${err.name}\nExiting...`);
-            process.exit(1);
-        });
-
-    app.listen(PORT, console.log(`Server running on ${PORT}`));
+const config = {
+    port: process.env.PORT || 8000,
+    mongoUrl: process.env.MONGO_URL || 'mongodb://admin:admin@localhost',
 };
 
-run();
+(async () => {
+    try {
+        const dbConnection = await mongoose.connect(config.mongoUrl, { dbName: 'test' });
+        console.log('DB Connected ', dbConnection.connection.db.databaseName);
+        app.listen(config.port, console.log(`Listening on ${config.port}`));
+    } catch (error) {
+        console.log('Error: ', error);
+        process.exit(1);
+    }
+})();

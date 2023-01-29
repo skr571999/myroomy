@@ -4,7 +4,7 @@ block content
 	div.signupContainer.p-3.bg-white.rounded
 		h4.text-muted.text-center.mb-4.mt-3 Signup
 		div.row
-			form(action='/user/add' method='post' enctype="multipart/form-data").col-10.col-md-8.mx-auto.pl-0
+			form(action='/signup' method='post' enctype="multipart/form-data").col-10.col-md-8.mx-auto.pl-0
 				div.form-group
 					label(for="userID") UserID
 					input.ml-3(type="text" name='userid' value=userid?userid:'' class="form-control" id="userID" aria-describedby="emailHelp" placeholder="Enter userid" required)
@@ -33,9 +33,6 @@ block content
 				div.form-group
 					label(for="address") Address
 					textarea.ml-3(name='address' class="form-control" id="address" rows="3" placeholder="e.g. Bijnor" required)
-				//- div.form-group
-				//- 	label(for="addharNumber") Addhar Number
-				//- 	input.ml-3(type='number' name='addharNumber' value=addharNumber?addharNumber:'' class="form-control" id="addharNumber" aria-describedby="emailHelp" placeholder="e.g. 123412341234" required)
 				div.form-group
 					label(for="photo") Add a Photo
 					input.ml-3(type="file" id='photo' name="photo" accept="image/*" class='form-control-file')

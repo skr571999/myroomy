@@ -4,7 +4,7 @@ block content
 	div.newRoomContainer.p-3.bg-white.rounded.m-3.mx-md-auto
 		h4.text-muted.text-center.mb-4.mt-3 Add a new Room
 		div.row
-			form(action="/room/add" method="post" enctype="multipart/form-data").col-10.col-md-6.mx-auto.pl-0
+			form(method="post" enctype="multipart/form-data").col-10.col-md-6.mx-auto.pl-0
 				div.form-group
 					label(for="location").font-weight-bold Location
 					textarea.ml-3(name='location' class="form-control" id="location" rows="3" placeholder="e.g. Bijnor" required)
